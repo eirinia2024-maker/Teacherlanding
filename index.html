@@ -288,6 +288,65 @@
       box-shadow: 0 10px 24px rgba(121, 136, 91, 0.07);
     }
 
+    .certificates-wrap {
+      margin-top: 6px;
+    }
+
+    .certificates-track {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(260px, 1fr));
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .certificates-track::-webkit-scrollbar,
+    .reviews-track::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .certificates-track::-webkit-scrollbar-thumb,
+    .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(117, 95, 147, 0.2);
+      border-radius: 999px;
+    }
+
+    .cert-card {
+      scroll-snap-align: start;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cert-image {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(121, 136, 91, 0.14);
+      padding: 10px;
+      display: block;
+    }
+
+    .cert-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cert-meta strong {
+      font-size: 17px;
+    }
+
+    .cert-meta span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .cards-3,
     .cards-5,
     .price-grid,
@@ -381,15 +440,6 @@
       overflow-x: auto;
       padding-bottom: 6px;
       scroll-snap-type: x mandatory;
-    }
-
-    .reviews-track::-webkit-scrollbar {
-      height: 10px;
-    }
-
-    .reviews-track::-webkit-scrollbar-thumb {
-      background: rgba(117, 95, 147, 0.2);
-      border-radius: 999px;
     }
 
     .review-card {
@@ -501,8 +551,9 @@
         flex-direction: column;
       }
 
+      .certificates-track,
       .reviews-track {
-        grid-template-columns: repeat(3, 86vw);
+        grid-template-columns: repeat(4, 86vw);
       }
     }
   </style>
@@ -556,19 +607,66 @@
 
   <main>
     <section class="section" id="about">
-      <div class="container grid-2">
-        <div class="panel about-text">
+      <div class="container">
+        <div class="section-head">
           <div class="eyebrow">О преподавателе</div>
-          <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно и с учётом возраста, уровня и целей.</p>
-          <p>У меня лингвистическое образование и международные преподавательские сертификаты. В работе я использую современные материалы и проверенные методики, постоянно развиваюсь профессионально и уделяю большое внимание качеству обучения.</p>
-          <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно, уверенно и без лишнего стресса.</p>
+          <h2>Опыт, квалификация и собственные материалы</h2>
         </div>
 
-        <div class="feature-list">
-          <div class="feature-card">20 лет опыта</div>
-          <div class="feature-card">Лингвистическое образование</div>
-          <div class="feature-card">Международные сертификаты</div>
-          <div class="feature-card">Автор пособия по чтению</div>
+        <div class="grid-2">
+          <div class="panel about-text">
+            <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно и с учётом возраста, уровня и целей.</p>
+            <p>У меня лингвистическое образование и международные преподавательские сертификаты. В работе я использую современные материалы и проверенные методики, постоянно развиваюсь профессионально и уделяю большое внимание качеству обучения.</p>
+            <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно, уверенно и без лишнего стресса.</p>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature-card">20 лет опыта</div>
+            <div class="feature-card">Лингвистическое образование</div>
+            <div class="feature-card">Международные сертификаты</div>
+            <div class="feature-card">Автор пособия по чтению</div>
+          </div>
+        </div>
+
+        <div class="certificates-wrap">
+          <div class="section-head" style="margin-top: 28px; margin-bottom: 18px;">
+            <h3 style="margin-bottom: 8px; font-size: 24px;">Сертификаты и дипломы</h3>
+            <p>Международные сертификаты и документы о квалификации.</p>
+          </div>
+
+          <div class="certificates-track">
+            <article class="card cert-card soft-lavender">
+              <img src="TEFL.PNG" alt="TEFL Certificate" class="cert-image">
+              <div class="cert-meta">
+                <strong>TEFL / TESOL Certificate</strong>
+                <span>Pearson · Hunter College, City University of New York</span>
+              </div>
+            </article>
+
+            <article class="card cert-card soft-blue">
+              <img src="tkt1.jpg" alt="TKT Module 1" class="cert-image">
+              <div class="cert-meta">
+                <strong>TKT Module 1</strong>
+                <span>Cambridge Assessment English</span>
+              </div>
+            </article>
+
+            <article class="card cert-card soft-green">
+              <img src="tkt2.PNG" alt="TKT Module 2" class="cert-image">
+              <div class="cert-meta">
+                <strong>TKT Module 2</strong>
+                <span>Cambridge Assessment English</span>
+              </div>
+            </article>
+
+            <article class="card cert-card soft-yellow">
+              <img src="tkt3.PNG" alt="TKT Module 3" class="cert-image">
+              <div class="cert-meta">
+                <strong>TKT Module 3</strong>
+                <span>Cambridge Assessment English</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
