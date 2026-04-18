@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ирина Шиманская — преподаватель английского языка</title>
+  <style>
+    :root {
+      --bg: #f8fbf4;
+      --surface: rgba(255,255,255,0.98);
+      --text: #2f2d36;
+      --muted: #666a73;
+      --lavender: #d2bdf2;
+      --lavender-strong: #b18ce7;
+      --green: #d4e8bb;
+      --green-strong: #a9cf7a;
+      --blue: #d4e8f8;
+      --blue-strong: #aecded;
+      --yellow: #f3df8e;
+      --pink: #f5cad8;
+      --border: rgba(85, 95, 68, 0.1);
+      --shadow: 0 16px 34px rgba(121, 136, 91, 0.09);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id],
+    header[id] {
+      scroll-margin-top: 120px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212, 232, 187, 0.24), transparent 30%),
+        radial-gradient(circle at top right, rgba(212, 232, 248, 0.24), transparent 24%),
+        linear-gradient(180deg, #f4f9ee 0%, #f8fbf4 38%, #fbfdf8 72%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #506233;
+      background: rgba(169, 207, 122, 0.28);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 10ch;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .hero {
+      padding: 28px 0 60px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 251, 244, 0.9);
+      border-bottom: 1px solid rgba(121, 136, 91, 0.1);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      min-height: 90px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+      max-width: 360px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(169, 207, 122, 0.22);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+      min-height: calc(100vh - 110px);
+    }
+
+    .hero-copy {
+      padding: 20px 0;
+    }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .chips-group.alt .chip {
+      background: linear-gradient(180deg, #eef8ff 0%, var(--blue) 100%);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff6f9 0%, #f2dcf2 100%);
+      border: 1px solid rgba(154, 126, 170, 0.1);
+      box-shadow: 0 10px 22px rgba(121, 136, 91, 0.08);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #eff8e3 0%, var(--green-strong) 100%);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(180deg, #f7f0ff 0%, var(--lavender) 100%);
+      border: 1px solid rgba(154, 126, 170, 0.12);
+    }
+
+    .hero-photo {
+      background: linear-gradient(180deg, #ffffff 0%, #fcfef9 100%);
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      min-height: 620px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 28px;
+      display: block;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text {
+      background:
+        radial-gradient(circle at top left, rgba(169, 207, 122, 0.18), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(178, 140, 231, 0.14), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(249,252,245,0.99) 100%);
+      border: 1px solid rgba(169, 207, 122, 0.16);
+    }
+
+    .about-text p + p,
+    .text-block p + p {
+      margin-top: 16px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdf8 100%);
+      border: 1px solid rgba(169, 207, 122, 0.16);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      font-weight: 700;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 10px 24px rgba(121, 136, 91, 0.07);
+    }
+
+    .cards-3,
+    .cards-5,
+    .price-grid,
+    .contacts-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .cards-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cards-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(169, 207, 122, 0.16);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      height: 100%;
+      backdrop-filter: blur(2px);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .soft-lavender { background: linear-gradient(180deg, #faf5ff 0%, #e4d3fb 100%); }
+    .soft-green { background: linear-gradient(180deg, #f6fbef 0%, #dcedc7 100%); }
+    .soft-blue { background: linear-gradient(180deg, #f5fbff 0%, #d9ebf8 100%); }
+    .soft-yellow { background: linear-gradient(180deg, #fffef5 0%, #f6e39b 100%); }
+    .soft-pink { background: linear-gradient(180deg, #fff8fb 0%, #f6d5e1 100%); }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .price-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .price-card {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .price-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      display: block;
+      font-size: clamp(24px, 2.2vw, 30px);
+      line-height: 1;
+      font-weight: 800;
+      margin-top: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 18px;
+    }
+
+    .reviews-shell {
+      position: relative;
+    }
+
+    .reviews-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(117, 95, 147, 0.2);
+      border-radius: 999px;
+    }
+
+    .review-card {
+      scroll-snap-align: start;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote {
+      font-size: 42px;
+      line-height: 1;
+      color: #bfa8df;
+      margin-bottom: 10px;
+    }
+
+    .review-placeholder {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .review-author {
+      margin-top: 18px;
+      font-weight: 700;
+    }
+
+    .contacts-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .contact-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-value {
+      font-size: 18px;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .footer {
+      padding: 22px 0 36px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .grid-2,
+      .pricing-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo { min-height: 460px; }
+      .cards-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 780px) {
+      section[id],
+      header[id] {
+        scroll-margin-top: 150px;
+      }
+
+      .section { padding: 56px 0; }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .cards-3,
+      .cards-5,
+      .price-grid,
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 16px;
+      }
+
+      .hero-grid {
+        min-height: auto;
+      }
+
+      .hero-photo {
+        min-height: 360px;
+      }
+
+      .panel,
+      .card {
+        padding: 22px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .reviews-track {
+        grid-template-columns: repeat(3, 86vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Ирина Шиманская — преподаватель английского языка</div>
+      <div class="nav-links">
+        <a href="#about">О преподавателе</a>
+        <a href="#lessons">Как проходят занятия</a>
+        <a href="#help">Чем могу помочь</a>
+        <a href="#formats">Форматы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#pricing">Стоимость</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Английский для детей, подростков и взрослых</div>
+        <h1>Занятия английским, на которых комфортно</h1>
+        <p class="lead">Помогаю дошкольникам с 5.5 лет, школьникам и взрослым учить английский в спокойной атмосфере — с понятными объяснениями, интересными заданиями и постепенным прогрессом.</p>
+
+        <div class="chips-group">
+          <div class="chip">Индивидуальные занятия</div>
+          <div class="chip">Парные занятия</div>
+          <div class="chip">Групповые занятия</div>
+        </div>
+
+        <div class="chips-group alt">
+          <div class="chip">Современные материалы и проверенные методики</div>
+          <div class="chip">В студии</div>
+          <div class="chip">Онлайн</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacts">Записаться</a>
+          <a class="btn btn-secondary" href="#pricing">Посмотреть стоимость</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="profile.png" alt="Ирина Шиманская, преподаватель английского языка" class="hero-image">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container grid-2">
+        <div class="panel about-text">
+          <div class="eyebrow">О преподавателе</div>
+          <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно и с учётом возраста, уровня и целей.</p>
+          <p>У меня лингвистическое образование и международные преподавательские сертификаты. В работе я использую современные материалы и проверенные методики, постоянно развиваюсь профессионально и уделяю большое внимание качеству обучения.</p>
+          <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно, уверенно и без лишнего стресса.</p>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-card">20 лет опыта</div>
+          <div class="feature-card">Лингвистическое образование</div>
+          <div class="feature-card">Международные сертификаты</div>
+          <div class="feature-card">Автор пособия по чтению</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Как проходят занятия</div>
+          <h2>Понятно, последовательно и без лишнего стресса</h2>
+        </div>
+        <div class="panel text-block">
+          <p>Занятия подбираются с учётом возраста, уровня и целей ученика. Для дошкольников это более игровой и наглядный формат, для школьников — сочетание понятного объяснения, практики и системной работы с языком, для взрослых — спокойное и структурированное обучение под конкретный запрос.</p>
+          <p>Для меня важно, чтобы на занятиях было комфортно, а обучение шло последовательно и без лишнего стресса. В работе я использую современные материалы и проверенные методики, сочетая объяснение, практику и постепенное закрепление материала.</p>
+          <p>Занятия проходят индивидуально, в паре или в группе — в студии и онлайн.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="help">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Чем могу помочь</div>
+          <h2>С какими задачами ко мне можно обратиться</h2>
+        </div>
+
+        <div class="cards-3">
+          <article class="card soft-lavender">
+            <h3>Дошкольники с 5.5 лет</h3>
+            <p>Мягкое знакомство с английским, формирование интереса и позитивного отношения к языку, первые слова, фразы и чтение в доступном по возрасту формате.</p>
+          </article>
+          <article class="card soft-green">
+            <h3>Школьники</h3>
+            <p>Формирование устойчивой базы, развитие языковых навыков, грамматики, словарного запаса, понимания на слух. Помощь в переходе от "не понимаю английский" к уверенности на уроках.</p>
+          </article>
+          <article class="card soft-blue">
+            <h3>Взрослые</h3>
+            <p>Спокойное и последовательное изучение английского с опорой на уровень, цель и комфортный темп обучения.</p>
+          </article>
+        </div>
+
+        <div style="height: 18px"></div>
+
+        <article class="card soft-yellow">
+          <h3>Отдельные направления работы</h3>
+          <p>Обучение чтению, развитие разговорных навыков, систематизация знаний и восполнение пробелов, подготовка к детским и подростковым Кембриджским экзаменам.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Форматы занятий</div>
+          <h2>Можно выбрать подходящий формат обучения</h2>
+        </div>
+
+        <div class="cards-5">
+          <article class="card soft-green">
+            <h3>В группе</h3>
+            <p>Практика, динамика и обучение в мини-группе.</p>
+          </article>
+          <article class="card soft-blue">
+            <h3>В паре</h3>
+            <p>Занятия вдвоём с поддержкой и взаимодействием.</p>
+          </article>
+          <article class="card soft-lavender">
+            <h3>Индивидуально</h3>
+            <p>Персональный маршрут и темп обучения.</p>
+          </article>
+          <article class="card soft-pink">
+            <h3>В студии</h3>
+            <p>Очный формат в комфортной обстановке.</p>
+          </article>
+          <article class="card soft-yellow">
+            <h3>Онлайн</h3>
+            <p>Современный и удобный формат из любой точки мира.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container reviews-shell">
+        <div class="section-head">
+          <div class="eyebrow">Отзывы</div>
+          <h2>Что говорят ученики и родители</h2>
+          <p>Пока здесь размещены тестовые карточки-заглушки. Позже их можно заменить на реальные отзывы.</p>
+        </div>
+
+        <div class="reviews-track">
+          <article class="card review-card soft-lavender">
+            <div>
+              <div class="quote">“</div>
+              <div class="review-placeholder">Текст отзыва появится здесь</div>
+            </div>
+            <div class="review-author">Мама ученика, 8 лет</div>
+          </article>
+
+          <article class="card review-card soft-green">
+            <div>
+              <div class="quote">“</div>
+              <div class="review-placeholder">Текст отзыва появится здесь</div>
+            </div>
+            <div class="review-author">Ученица, 13 лет</div>
+          </article>
+
+          <article class="card review-card soft-blue">
+            <div>
+              <div class="quote">“</div>
+              <div class="review-placeholder">Текст отзыва появится здесь</div>
+            </div>
+            <div class="review-author">Взрослая ученица</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container pricing-wrap">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Стоимость занятий</div>
+            <h2>Понятные условия и прозрачная стоимость</h2>
+            <p>Оптимальный формат можно подобрать под возраст, задачу и комфортный темп обучения.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacts">Записаться</a>
+            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Ознакомиться с договором</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="price-grid">
+            <article class="card price-card soft-green">
+              <h3>В группе</h3>
+              <span class="price">от 900 ₽</span>
+            </article>
+            <article class="card price-card soft-blue">
+              <h3>В паре</h3>
+              <span class="price">от 1300 ₽</span>
+            </article>
+            <article class="card price-card soft-lavender">
+              <h3>Индивидуально</h3>
+              <span class="price">от 2400 ₽</span>
+            </article>
+          </div>
+          <div class="panel price-note" style="margin-top:18px;">
+            Продолжительность занятия — 60 минут. Занятия оплачиваются по абонементу.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Запись и контакты</div>
+          <h2>Свяжитесь со мной удобным способом</h2>
+          <p>Если вы хотите записаться на занятия или задать вопрос, выберите удобный способ связи.</p>
+        </div>
+
+        <div class="contacts-grid">
+          <article class="card contact-card soft-lavender">
+            <h3>Телефон</h3>
+            <div class="contact-value"><a href="tel:+79854673627">+7 985 467-36-27</a></div>
+          </article>
+          <article class="card contact-card soft-blue">
+            <h3>Telegram</h3>
+            <div class="contact-value"><a href="https://t.me/Eirinia2024" target="_blank" rel="noopener noreferrer">@Eirinia2024</a></div>
+          </article>
+          <article class="card contact-card soft-green">
+            <h3>Max</h3>
+            <div class="contact-value"><a href="tel:+79637898391">+7 963 789-83-91</a></div>
+          </article>
+          <article class="card contact-card soft-pink">
+            <h3>Студия</h3>
+            <div class="contact-value">г. Москва. Ул. Кусковская 20А каб. В702А</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Сайт-визитка преподавателя английского языка</div>
+  </footer>
+</body>
+</html>
