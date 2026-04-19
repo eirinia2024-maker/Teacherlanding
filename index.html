@@ -6,28 +6,25 @@
   <title>Ирина Шиманская — преподаватель английского языка</title>
   <style>
     :root {
-      /* Фирменная теплая палитра */
-      --pastel-blue: #EAF4F9;
-      --pastel-lavender: #C9B6E4;
-      --accent-soft: #5C95AC;
+      /* Базовые цвета */
+      --bg: #f8fbf4;
+      --surface: rgba(255,255,255,0.98);
+      --text: #2f2d36;
+      --muted: #666a73;
       
-      --pastel-pink: #FDF3F6;
-      --warm-cream: #FFFCF5;
+      /* Ваша 5-цветная пастельная палитра для карточек */
+      --lavender: #d2bdf2;
+      --green: #d4e8bb;
+      --blue: #d4e8f8;
+      --yellow: #f3df8e;
+      --pink: #f5cad8;
+
+      /* Акцентный цвет для главных кнопок и меню */
+      --accent-strong: #297796;
       
-      --pistachio-bg: #f7faf3;
-      --pistachio-card: #eef5e6;
-      
-      /* Контрастные цвета для текста и акцентов */
-      --accent-strong: #297796; 
-      --text-main: #1a2b33;     
-      --text-muted: #485c66;    
-      
-      --surface: #ffffff;
-      
-      /* Более темная обводка для карточек и плашек (чтобы не сливались) */
-      --border: rgba(41, 119, 150, 0.35); 
-      --shadow: 0 10px 30px rgba(41, 119, 150, 0.08);
-      
+      /* Общие стили рамок и теней */
+      --border: rgba(85, 95, 68, 0.15);
+      --shadow: 0 16px 34px rgba(121, 136, 91, 0.06);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 18px;
@@ -36,18 +33,23 @@
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
-    section[id], header[id] { scroll-margin-top: 90px; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id], header[id] {
+      scroll-margin-top: 120px;
+    }
 
     body {
       margin: 0;
       font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-      /* Многослойный теплый градиент: лаванда слева, пудра справа, фисташка внизу */
-      background: 
-        radial-gradient(circle at top left, rgba(201, 182, 228, 0.25), transparent 45%),
-        radial-gradient(circle at top right, rgba(253, 243, 246, 0.9), transparent 50%),
-        linear-gradient(180deg, var(--pistachio-bg) 0%, #FAFDFF 100%);
-      color: var(--text-main);
+      /* Легкий, свежий фон */
+      background:
+        radial-gradient(circle at top left, rgba(212, 232, 187, 0.24), transparent 30%),
+        radial-gradient(circle at top right, rgba(212, 232, 248, 0.24), transparent 24%),
+        linear-gradient(180deg, #f4f9ee 0%, #f8fbf4 38%, #fbfdf8 72%, #ffffff 100%);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -56,68 +58,72 @@
       margin: 0 auto;
     }
 
-    .section { padding: 52px 0; }
+    .section {
+      padding: 72px 0;
+    }
 
+    /* Плашки заголовков (Eyebrow) - зеленые, чтобы отличаться от карточек */
     .eyebrow {
       display: inline-block;
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #3B2A56; 
-      background: var(--pastel-lavender);
+      color: #435429;
+      background: #e2f0d1;
+      border: 1px solid #cce0b4;
       padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(59, 42, 86, 0.15);
-      box-shadow: 0 4px 12px rgba(201, 182, 228, 0.3);
+      margin-bottom: 18px;
     }
 
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(26px, 4vw, 42px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
       color: var(--accent-strong);
-      max-width: 16ch;
+      max-width: 14ch;
     }
 
     h2 {
-      font-size: clamp(26px, 3.5vw, 38px);
+      font-size: clamp(28px, 4vw, 42px);
       line-height: 1.12;
       letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      color: var(--accent-strong);
+      margin-bottom: 18px;
+      color: var(--text);
     }
 
     h3 {
       font-size: 20px;
       line-height: 1.25;
-      margin-bottom: 8px;
-      color: var(--accent-strong);
+      margin-bottom: 10px;
+      color: var(--text);
     }
 
     .lead {
-      font-size: clamp(16px, 1.8vw, 19px);
-      color: var(--text-muted);
+      font-size: clamp(18px, 2vw, 20px);
+      color: var(--muted);
       max-width: 760px;
     }
-
+    
     .lead + .lead {
       margin-top: 14px;
     }
 
-    .hero { padding: 24px 0 40px; }
+    .hero {
+      padding: 28px 0 60px;
+    }
 
     .nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(253, 250, 247, 0.85);
-      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      background: rgba(248, 251, 244, 0.9);
+      border-bottom: 1px solid rgba(121, 136, 91, 0.15);
     }
 
     .nav-inner {
@@ -132,6 +138,7 @@
       flex-wrap: wrap;
     }
 
+    /* Двухстрочный логотип */
     .brand {
       display: flex;
       flex-direction: column;
@@ -148,7 +155,7 @@
 
     .brand-desc {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--muted);
       font-weight: 500;
       letter-spacing: 0.01em;
     }
@@ -181,124 +188,137 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text-main);
+      color: var(--text);
       font-size: 14px;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
       transition: 0.2s ease;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .nav-links a.nav-btn {
       background: var(--accent-strong);
       color: #ffffff;
       padding: 10px 20px;
-      margin-left: 6px;
-      box-shadow: 0 4px 12px rgba(41, 119, 150, 0.2);
-      border: none;
+      margin-left: 8px;
+      font-weight: 600;
     }
 
     @media (hover: hover) {
       .nav-links a:hover:not(.nav-btn) {
-        background: var(--pastel-pink);
-        color: var(--accent-strong);
+        background: rgba(169, 207, 122, 0.22);
       }
       .nav-links a.nav-btn:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(41, 119, 150, 0.3);
-        opacity: 0.95;
+        box-shadow: 0 4px 12px rgba(41, 119, 150, 0.2);
       }
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 32px;
       align-items: center;
-      min-height: auto;
+      min-height: calc(100vh - 110px);
     }
 
-    .hero-copy { padding: 10px 0; }
+    .hero-copy {
+      padding: 20px 0;
+    }
 
+    /* === ЖЕСТКАЯ СЕТКА ДЛЯ ПЛАШЕК НА ПЕРВОМ ЭКРАНЕ === */
     .chips-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+      max-width: 520px;
     }
 
-    /* Плашки с темной обводкой */
+    .chips-group.alt {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      margin-top: 12px;
+      max-width: 342px; /* 2 колонки + gap */
+    }
+
+    /* Плашки стали плотнее внутри и имеют четкий контур */
     .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: var(--warm-cream);
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(41, 119, 150, 0.05);
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--accent-strong);
-    }
-
-    /* Второй ряд плашек (Онлайн, В студии) тоже с темной обводкой */
-    .chips-group.alt .chip {
-      background: var(--pastel-pink);
-      border: 1px solid var(--border);
-      box-shadow: none;
-    }
-
-    .hero-actions {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 48px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fdf0f4; /* Плотный пудрово-розовый */
+      border: 1.5px solid #eab8cb; /* Четкий контур */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      font-weight: 600;
+      font-size: 14.5px;
+      color: #633f4f; /* Темный текст для контраста */
+      text-align: center;
+    }
+
+    .chips-group.alt .chip {
+      background: #eef6fc; /* Плотный голубой */
+      border: 1.5px solid #a8cde5;
+      color: #3b5a70;
+    }
+
+    /* Жесткая сетка для кнопок */
+    .hero-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(160px, 220px));
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 26px;
+      width: 100%;
+      min-height: 52px;
+      padding: 0 16px;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 700;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
       font-size: 15px;
+      text-align: center;
     }
 
     .btn-primary {
       background: var(--accent-strong);
       color: #ffffff;
-      box-shadow: 0 6px 18px rgba(41, 119, 150, 0.25);
+      box-shadow: 0 8px 20px rgba(41, 119, 150, 0.2);
     }
 
     .btn-secondary {
-      background: var(--surface);
+      background: #ffffff;
       color: var(--accent-strong);
       border: 1.5px solid var(--accent-strong);
     }
 
     @media (hover: hover) {
       .btn:hover { transform: translateY(-2px); }
-      .btn-primary:hover { box-shadow: 0 10px 24px rgba(41, 119, 150, 0.35); opacity: 0.95; }
-      .btn-secondary:hover { background: var(--pastel-pink); border-color: var(--accent-strong); }
+      .btn-primary:hover { box-shadow: 0 12px 24px rgba(41, 119, 150, 0.3); }
+      .btn-secondary:hover { background: #f4f9ee; }
     }
 
     .hero-photo {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 32px;
+      background: linear-gradient(180deg, #ffffff 0%, #fcfef9 100%);
+      border: 1px solid var(--border);
+      border-radius: 36px;
       box-shadow: var(--shadow);
-      min-height: 500px;
+      min-height: 560px;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: stretch;
       justify-content: center;
-      padding: 14px;
+      padding: 24px;
     }
 
     .hero-image {
@@ -307,7 +327,7 @@
       min-height: 0;
       object-fit: cover;
       object-position: center top;
-      border-radius: 20px;
+      border-radius: 24px;
       display: block;
       background: #ffffff;
       flex: 1 1 auto;
@@ -316,37 +336,44 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
+      gap: 28px;
       align-items: start;
     }
 
-    /* Карточки и панели с более плотной обводкой */
     .panel {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: 32px;
       box-shadow: var(--shadow);
     }
 
-    .about-text p + p, .text-block p + p { margin-top: 14px; }
-
-    .feature-list { display: grid; gap: 12px; }
-
-    .feature-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      font-weight: 700;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      color: var(--accent-strong);
-      box-shadow: 0 2px 8px rgba(41, 119, 150, 0.04);
+    .about-text p + p,
+    .text-block p + p {
+      margin-top: 16px;
     }
 
-    .cards-3, .cards-5, .price-grid, .contacts-grid {
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdf8 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      font-weight: 700;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(121, 136, 91, 0.05);
+    }
+
+    .cards-3,
+    .cards-5,
+    .price-grid,
+    .contacts-grid {
       display: grid;
       gap: 18px;
     }
@@ -356,87 +383,106 @@
 
     .card {
       background: var(--surface);
-      border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 24px;
-      height: 100%;
+      padding: 26px;
       box-shadow: var(--shadow);
+      height: 100%;
     }
 
-    .card p { color: var(--text-muted); font-size: 15px; }
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 8px;
+    }
 
-    .theme-pistachio { background: var(--pistachio-card); }
-    .theme-blue { background: var(--pastel-blue); }
-    .theme-lavender { background: rgba(201, 182, 228, 0.25); }
-    .theme-white { background: var(--surface); }
+    /* === ВАШИ ОРИГИНАЛЬНЫЕ ЦВЕТА КАРТОЧЕК С АККУРАТНЫМ КОНТУРОМ === */
+    .soft-lavender { background: linear-gradient(180deg, #faf5ff 0%, #eadef5 100%); border: 1px solid #d2bdf2; }
+    .soft-green { background: linear-gradient(180deg, #f6fbef 0%, #e2f2cd 100%); border: 1px solid #c5e0a5; }
+    .soft-blue { background: linear-gradient(180deg, #f5fbff 0%, #dff0fc 100%); border: 1px solid #aecded; }
+    .soft-yellow { background: linear-gradient(180deg, #fffef5 0%, #f9ecc2 100%); border: 1px solid #f3df8e; }
+    .soft-pink { background: linear-gradient(180deg, #fff8fb 0%, #f8e1ea 100%); border: 1px solid #f5cad8; }
 
     .section-head {
       max-width: 760px;
       margin-bottom: 28px;
     }
 
-    .section-head p { color: var(--text-muted); font-size: 17px; }
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-top: 8px;
+    }
 
     .pricing-wrap {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
+      gap: 24px;
       align-items: start;
     }
 
-    .price-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .price-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
     .price-card {
       text-align: center;
       padding: 24px 16px;
     }
 
-    .price-card h3 { font-size: 17px; margin-bottom: 6px; }
+    .price-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
 
     .price {
       display: block;
-      font-size: clamp(22px, 2.2vw, 28px);
+      font-size: clamp(24px, 2.2vw, 30px);
       line-height: 1;
       font-weight: 800;
       margin-top: 10px;
       letter-spacing: -0.02em;
-      color: var(--accent-strong);
     }
 
     .price-note {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 16px;
-      background: var(--pastel-blue);
-      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 18px;
+      background: #f4f9ee;
+      border: 1px solid #d4e8bb;
       padding: 20px;
-      border-radius: 16px;
+      border-radius: var(--radius-md);
     }
 
-    .certificates-wrap { margin-top: 20px; }
+    .certificates-wrap {
+      margin-top: 6px;
+    }
 
     .certificates-track {
       display: grid;
       grid-template-columns: repeat(4, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 18px;
       overflow-x: auto;
       padding-bottom: 12px;
       scroll-snap-type: x mandatory;
     }
 
-    .certificates-track::-webkit-scrollbar, .reviews-track::-webkit-scrollbar { height: 8px; }
-    .certificates-track::-webkit-scrollbar-thumb, .reviews-track::-webkit-scrollbar-thumb {
-      background: var(--pastel-lavender);
+    .certificates-track::-webkit-scrollbar,
+    .reviews-track::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .certificates-track::-webkit-scrollbar-thumb,
+    .reviews-track::-webkit-scrollbar-thumb {
+      background: #d2bdf2;
       border-radius: 999px;
     }
 
     .cert-card {
       scroll-snap-align: start;
-      min-height: 300px;
+      min-height: 320px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding: 14px;
+      gap: 16px;
     }
 
     .cert-open {
@@ -446,29 +492,38 @@
       border: 0;
       background: transparent;
       cursor: zoom-in;
-      border-radius: 14px;
-      transition: transform 0.18s ease;
+      border-radius: 18px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    @media (hover: hover) { .cert-open:hover { transform: translateY(-3px); } }
+    .cert-open:hover {
+      transform: translateY(-2px);
+    }
 
     .cert-image {
       width: 100%;
-      height: 200px;
+      height: 240px;
       object-fit: contain;
       object-position: center;
-      border-radius: 12px;
-      background: #fff;
-      border: 1.5px solid var(--border);
-      padding: 8px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(121, 136, 91, 0.15);
+      padding: 10px;
       display: block;
     }
 
-    .cert-meta { display: flex; flex-direction: column; gap: 2px; padding: 0 4px; }
-    .cert-meta strong { font-size: 15px; color: var(--accent-strong); }
-    .cert-meta span { color: var(--text-muted); font-size: 12px; }
+    .cert-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-    .reviews-shell { position: relative; }
+    .cert-meta strong { font-size: 16px; }
+    .cert-meta span { color: var(--muted); font-size: 13px; }
+
+    .reviews-shell {
+      position: relative;
+    }
 
     .reviews-track {
       display: grid;
@@ -481,36 +536,36 @@
 
     .review-card {
       scroll-snap-align: start;
-      min-height: 220px;
+      min-height: 240px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .quote {
-      font-size: 46px;
+      font-size: 42px;
       line-height: 1;
-      color: var(--pastel-lavender);
-      margin-bottom: 6px;
+      color: #b18ce7;
+      margin-bottom: 10px;
       font-family: serif;
     }
 
     .review-placeholder {
-      color: var(--text-muted);
-      font-size: 15px;
+      color: var(--muted);
+      font-size: 16px;
       font-style: italic;
     }
 
     .review-author {
-      margin-top: 16px;
+      margin-top: 18px;
       font-weight: 700;
-      font-size: 14px;
-      color: var(--accent-strong);
     }
 
-    .contacts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .contacts-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 
-    .contact-card h3 { color: var(--accent-strong); font-size: 16px; }
+    .contact-card h3 { margin-bottom: 8px; }
     .contact-card a { color: inherit; text-decoration: none; }
     @media (hover: hover) { .contact-card a:hover { text-decoration: underline; } }
 
@@ -518,7 +573,6 @@
       font-size: 17px;
       font-weight: 700;
       word-break: break-word;
-      color: var(--text-main);
     }
 
     .cert-modal {
@@ -528,8 +582,8 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: rgba(26, 43, 51, 0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(31, 33, 40, 0.75);
+      backdrop-filter: blur(6px);
       z-index: 1000;
     }
 
@@ -539,45 +593,42 @@
       position: relative;
       width: min(1100px, 100%);
       max-height: min(90vh, 1000px);
-      padding: 20px;
+      padding: 18px 18px 14px;
       border-radius: 24px;
-      background: var(--surface);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 24px 60px rgba(24, 28, 18, 0.22);
     }
 
     .cert-modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 44px;
-      height: 44px;
-      border: 0;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #d2bdf2;
       border-radius: 999px;
-      background: var(--pastel-blue);
-      color: var(--accent-strong);
+      background: #faf5ff;
       cursor: pointer;
-      font-size: 24px;
+      font-size: 22px;
+      line-height: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: 0.2s;
     }
-
-    @media (hover: hover) {
-      .cert-modal-close:hover { background: var(--pastel-lavender); color: #fff; }
-    }
+    
+    @media (hover: hover) { .cert-modal-close:hover { background: #d2bdf2; } }
 
     .cert-modal-title {
       font-size: 18px;
       font-weight: 700;
-      margin: 4px 54px 16px 8px;
-      color: var(--accent-strong);
+      margin: 4px 54px 14px 6px;
     }
 
     .cert-modal-image-wrap {
-      max-height: calc(90vh - 100px);
+      max-height: calc(90vh - 96px);
       overflow: auto;
-      border-radius: 16px;
+      border-radius: 18px;
       background: #fff;
     }
 
@@ -589,14 +640,19 @@
     }
 
     .footer {
-      padding: 24px 0 40px;
-      color: var(--text-muted);
+      padding: 32px 0 40px;
+      color: var(--muted);
       font-size: 13px;
       text-align: center;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(121, 136, 91, 0.15);
     }
 
-    .footer-legal { margin-top: 10px; line-height: 1.6; }
+    .footer-legal {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     .footer-legal a { color: var(--accent-strong); text-decoration: underline; }
 
     .back-to-top {
@@ -605,21 +661,22 @@
       bottom: 24px;
       width: 50px;
       height: 50px;
-      border: 0;
+      border: 1px solid #cce0b4;
       border-radius: 999px;
-      background: var(--accent-strong);
-      color: #fff;
+      background: #e2f0d1;
+      color: #435429;
       font-size: 22px;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(41, 119, 150, 0.3);
+      box-shadow: 0 10px 24px rgba(121, 136, 91, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
-      transition: 0.3s ease;
-      z-index: 99;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 999;
     }
 
     .back-to-top.is-visible {
@@ -628,34 +685,48 @@
       transform: translateY(0);
     }
 
+    @media (hover: hover) { .back-to-top:hover { transform: translateY(-2px); } }
+
     @media (max-width: 1080px) {
       .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; }
-      .hero-photo { min-height: 400px; }
+      .hero-photo { min-height: 460px; }
       .cards-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 780px) {
       section[id], header[id] { scroll-margin-top: 80px; }
-      .section { padding: 40px 0; }
+      .section { padding: 48px 0; }
+      
       .menu-toggle { display: block; }
       .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
       .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
       .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      
       .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding: 10px 0 20px; }
       .nav-links.is-open { display: flex; }
-      .nav-links a { padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: center; font-size: 15px; }
-      .nav-links a.nav-btn { margin-left: 0; margin-top: 8px; }
+      .nav-links a { padding: 12px 16px; background: rgba(255,255,255,0.9); border: 1px solid var(--border); border-radius: 12px; text-align: center; font-size: 15px; }
+      .nav-links a.nav-btn { margin-left: 0; margin-top: 8px; border: none; }
+
+      /* Адаптация плашек для мобильных */
+      .chips-group, .chips-group.alt {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+      .chip { width: auto; flex: 1 1 calc(50% - 12px); min-height: 44px; font-size: 13px;}
+      
+      .hero-actions { grid-template-columns: 1fr; }
       .cards-3, .cards-5, .price-grid, .contacts-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 10px; }
-      .hero-grid { min-height: auto; gap: 24px; }
-      .hero-photo { min-height: 300px; padding: 10px; border-radius: 24px; }
-      .hero-image { border-radius: 16px; }
-      .panel, .card { padding: 20px; }
-      .btn { width: 100%; }
-      .hero-actions { flex-direction: column; gap: 12px; }
+      
+      .hero { padding-top: 16px; }
+      .hero-grid { min-height: auto; }
+      .hero-photo { min-height: 360px; }
+      .panel, .card { padding: 22px; }
+      
       .certificates-track::-webkit-scrollbar, .reviews-track::-webkit-scrollbar { display: none; }
-      .certificates-track, .reviews-track { grid-template-columns: repeat(4, 82vw); -ms-overflow-style: none; scrollbar-width: none; }
+      .certificates-track, .reviews-track { grid-template-columns: repeat(4, 86vw); -ms-overflow-style: none; scrollbar-width: none;}
+      
       .back-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; font-size: 20px; }
     }
   </style>
@@ -723,7 +794,7 @@
         </div>
 
         <div class="grid-2">
-          <div class="panel about-text theme-pistachio">
+          <div class="panel about-text soft-green">
             <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно и с учётом возраста, уровня и целей.</p>
             <p>У меня лингвистическое образование и международные преподавательские сертификаты. В работе я использую современные материалы и проверенные методики, постоянно развиваюсь профессионально и уделяю большое внимание качеству обучения.</p>
             <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно, уверенно и без лишнего стресса.</p>
@@ -738,23 +809,23 @@
         </div>
 
         <div class="certificates-wrap">
-          <div class="section-head" style="margin-top: 24px; margin-bottom: 16px;">
-            <h3 style="margin-bottom: 6px; font-size: 22px;">Сертификаты и дипломы</h3>
-            <p>Смахните карточки вбок, чтобы посмотреть все сертификаты.</p>
+          <div class="section-head" style="margin-top: 28px; margin-bottom: 18px;">
+            <h3 style="margin-bottom: 8px; font-size: 24px;">Сертификаты и дипломы</h3>
+            <p>Нажмите на изображение, чтобы посмотреть сертификат в полном размере прямо на сайте.</p>
           </div>
 
           <div class="certificates-track">
-            <article class="card cert-card theme-white">
+            <article class="card cert-card soft-lavender">
               <button class="cert-open" type="button" data-image="TEFL.PNG" data-title="TEFL / TESOL Certificate">
                 <img src="TEFL.PNG" alt="TEFL Certificate" class="cert-image">
               </button>
               <div class="cert-meta">
                 <strong>TEFL / TESOL Certificate</strong>
-                <span>Pearson · Hunter College</span>
+                <span>Pearson · Hunter College, City University of New York</span>
               </div>
             </article>
 
-            <article class="card cert-card theme-blue">
+            <article class="card cert-card soft-blue">
               <button class="cert-open" type="button" data-image="tkt1.jpg" data-title="TKT Module 1">
                 <img src="tkt1.jpg" alt="TKT Module 1" class="cert-image">
               </button>
@@ -764,7 +835,7 @@
               </div>
             </article>
 
-            <article class="card cert-card theme-lavender">
+            <article class="card cert-card soft-green">
               <button class="cert-open" type="button" data-image="tkt2.PNG" data-title="TKT Module 2">
                 <img src="tkt2.PNG" alt="TKT Module 2" class="cert-image">
               </button>
@@ -774,7 +845,7 @@
               </div>
             </article>
 
-            <article class="card cert-card theme-white">
+            <article class="card cert-card soft-yellow">
               <button class="cert-open" type="button" data-image="tkt3.PNG" data-title="TKT Module 3">
                 <img src="tkt3.PNG" alt="TKT Module 3" class="cert-image">
               </button>
@@ -796,15 +867,15 @@
         </div>
 
         <div class="cards-3">
-          <article class="card theme-lavender">
-            <h3>Дошкольники (с 5.5 лет)</h3>
+          <article class="card soft-lavender">
+            <h3>Дошкольники с 5.5 лет</h3>
             <p>Мягкое знакомство с английским, формирование интереса и позитивного отношения к языку, первые слова, фразы и чтение в доступном по возрасту формате.</p>
           </article>
-          <article class="card theme-blue">
+          <article class="card soft-green">
             <h3>Школьники</h3>
-            <p>Формирование устойчивой базы, развитие языковых навыков, грамматики, словарного запаса, понимания на слух. Переход от "не понимаю" к уверенности.</p>
+            <p>Формирование устойчивой базы, развитие языковых навыков, грамматики, словарного запаса, понимания на слух. Помощь в переходе от "не понимаю английский" к уверенности на уроках.</p>
           </article>
-          <article class="card theme-white">
+          <article class="card soft-blue">
             <h3>Взрослые</h3>
             <p>Спокойное и последовательное изучение английского с опорой на уровень, цель и комфортный темп обучения.</p>
           </article>
@@ -812,9 +883,9 @@
 
         <div style="height: 18px"></div>
 
-        <article class="card theme-pistachio">
+        <article class="card soft-yellow">
           <h3>Отдельные направления работы</h3>
-          <p>Обучение чтению (авторский курс), развитие разговорных навыков, систематизация знаний, восполнение пробелов, подготовка к Кембриджским экзаменам.</p>
+          <p>Обучение чтению, развитие разговорных навыков, систематизация знаний и восполнение пробелов, подготовка к детским и подростковым Кембриджским экзаменам.</p>
         </article>
       </div>
     </section>
@@ -827,23 +898,23 @@
         </div>
 
         <div class="cards-5">
-          <article class="card theme-white">
+          <article class="card soft-green">
             <h3>В группе</h3>
             <p>Практика, динамика и обучение в мини-группе.</p>
           </article>
-          <article class="card theme-blue">
+          <article class="card soft-blue">
             <h3>В паре</h3>
             <p>Занятия вдвоём с поддержкой и взаимодействием.</p>
           </article>
-          <article class="card theme-lavender">
+          <article class="card soft-lavender">
             <h3>Индивидуально</h3>
             <p>Персональный маршрут и темп обучения.</p>
           </article>
-          <article class="card theme-white">
+          <article class="card soft-pink">
             <h3>В студии</h3>
             <p>Очный формат в комфортной обстановке.</p>
           </article>
-          <article class="card theme-pistachio">
+          <article class="card soft-yellow">
             <h3>Онлайн</h3>
             <p>Современный и удобный формат из любой точки мира.</p>
           </article>
@@ -856,10 +927,11 @@
         <div class="section-head">
           <div class="eyebrow">Отзывы</div>
           <h2>Что говорят ученики и родители</h2>
+          <p>Пока здесь размещены тестовые карточки-заглушки. Позже их можно заменить на реальные отзывы.</p>
         </div>
 
         <div class="reviews-track">
-          <article class="card review-card theme-white">
+          <article class="card review-card soft-lavender">
             <div>
               <div class="quote">“</div>
               <div class="review-placeholder">Текст отзыва появится здесь</div>
@@ -867,7 +939,7 @@
             <div class="review-author">Мама ученика, 8 лет</div>
           </article>
 
-          <article class="card review-card theme-blue">
+          <article class="card review-card soft-green">
             <div>
               <div class="quote">“</div>
               <div class="review-placeholder">Текст отзыва появится здесь</div>
@@ -875,7 +947,7 @@
             <div class="review-author">Ученица, 13 лет</div>
           </article>
 
-          <article class="card review-card theme-lavender">
+          <article class="card review-card soft-blue">
             <div>
               <div class="quote">“</div>
               <div class="review-placeholder">Текст отзыва появится здесь</div>
@@ -896,21 +968,21 @@
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacts">Записаться</a>
-            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Договор-оферта</a>
+            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Ознакомиться с договором</a>
           </div>
         </div>
 
         <div>
           <div class="price-grid">
-            <article class="card price-card theme-white">
+            <article class="card price-card soft-green">
               <h3>В группе</h3>
               <span class="price">от 900 ₽</span>
             </article>
-            <article class="card price-card theme-pistachio">
+            <article class="card price-card soft-blue">
               <h3>В паре</h3>
               <span class="price">от 1300 ₽</span>
             </article>
-            <article class="card price-card theme-lavender">
+            <article class="card price-card soft-lavender">
               <h3>Индивидуально</h3>
               <span class="price">от 2400 ₽</span>
             </article>
@@ -927,22 +999,23 @@
         <div class="section-head">
           <div class="eyebrow">Запись и контакты</div>
           <h2>Свяжитесь со мной удобным способом</h2>
+          <p>Если вы хотите записаться на занятия или задать вопрос, выберите удобный способ связи.</p>
         </div>
 
         <div class="contacts-grid">
-          <article class="card contact-card theme-blue">
-            <h3>Telegram</h3>
-            <div class="contact-value"><a href="https://t.me/Eirinia2024" target="_blank" rel="noopener noreferrer">@Eirinia2024</a></div>
-          </article>
-          <article class="card contact-card theme-white">
+          <article class="card contact-card soft-lavender">
             <h3>Телефон</h3>
             <div class="contact-value"><a href="tel:+79854673627">+7 985 467-36-27</a></div>
           </article>
-          <article class="card contact-card theme-lavender">
-            <h3>Max</h3>
+          <article class="card contact-card soft-blue">
+            <h3>Telegram</h3>
+            <div class="contact-value"><a href="https://t.me/Eirinia2024" target="_blank" rel="noopener noreferrer">@Eirinia2024</a></div>
+          </article>
+          <article class="card contact-card soft-green">
+            <h3>Мах</h3>
             <div class="contact-value"><a href="tel:+79637898391">+7 963 789-83-91</a></div>
           </article>
-          <article class="card contact-card theme-pistachio">
+          <article class="card contact-card soft-pink">
             <h3>Студия</h3>
             <div class="contact-value">г. Москва. Ул. Кусковская 20А каб. В702А</div>
           </article>
@@ -953,7 +1026,7 @@
 
   <div class="cert-modal" id="certModal" aria-hidden="true">
     <div class="cert-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
-      <button class="cert-modal-close" type="button" id="certModalClose" aria-label="Закрыть">✕</button>
+      <button class="cert-modal-close" type="button" id="certModalClose" aria-label="Закрыть">×</button>
       <div class="cert-modal-title" id="certModalTitle">Сертификат</div>
       <div class="cert-modal-image-wrap">
         <img src="" alt="" class="cert-modal-image" id="certModalImage">
@@ -967,7 +1040,7 @@
       <div class="footer-legal">
         <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна</div>
         <div>ИНН: 772773326600 | ОГРНИП: 318774600260427</div>
-        <div style="margin-top: 8px;"><a href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Ознакомиться с договором</a></div>
+        <div style="margin-top: 8px;"><a href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Договор</a></div>
       </div>
     </div>
   </footer>
