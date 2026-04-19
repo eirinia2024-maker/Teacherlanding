@@ -573,7 +573,60 @@
       font-size: 14px;
       text-align: center;
     }
+.footer-legal {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
 
+.footer-legal a {
+  color: inherit;
+  text-decoration: underline;
+}
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f7f0ff 0%, var(--lavender) 100%);
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(121, 136, 91, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 999;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 780px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+}
     @media (max-width: 1080px) {
       .hero-grid,
       .grid-2,
@@ -953,9 +1006,19 @@
   </div>
 
   <footer class="footer">
-    <div class="container">Сайт-визитка преподавателя английского языка</div>
-  </footer>
-
+  <div class="container">
+    <div>Сайт-визитка преподавателя английского языка</div>
+    <div class="footer-legal">
+      <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна</div>
+      <div>ИНН: 772773326600</div>
+      <div>ОГРНИП: 318774600260427</div>
+      <div><a href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Договор</a></div>
+    </div>
+  </div>
+</footer>
+ <button class="back-to-top" id="backToTop" type="button" aria-label="Наверх">
+  ↑
+</button>
   <script>
     const certModal = document.getElementById('certModal');
     const certModalImage = document.getElementById('certModalImage');
@@ -999,6 +1062,26 @@
         closeCertModal();
       }
     });
+	const backToTop = document.getElementById('backToTop');
+
+function toggleBackToTop() {
+  if (window.scrollY > 500) {
+    backToTop.classList.add('is-visible');
+  } else {
+    backToTop.classList.remove('is-visible');
+  }
+}
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+window.addEventListener('scroll', toggleBackToTop);
+toggleBackToTop();
   </script>
+
 </body>
 </html>
