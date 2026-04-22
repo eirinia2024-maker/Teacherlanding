@@ -4,27 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ирина Шиманская — преподаватель английского языка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Базовые цвета */
-      --bg: #f8fbf4;
+      /* ФИКСИРОВАННАЯ ПАЛИТРА: БИРЮЗА И ЛАЙМ */
+      --bg: #F4FAF8;
       --surface: rgba(255,255,255,0.98);
-      --text: #2f2d36;
-      --muted: #666a73;
+      --text: #1E272E;
+      --muted: #506470;
       
-      /* Ваша 5-цветная пастельная палитра для карточек */
-      --lavender: #d2bdf2;
-      --green: #d4e8bb;
-      --blue: #d4e8f8;
-      --yellow: #f3df8e;
-      --pink: #f5cad8;
+      --accent-strong: #0FB9B1; 
+      --accent-happy: #BADC58;  
 
-      /* Акцентный цвет для главных кнопок и меню */
-      --accent-strong: #297796;
-      
-      /* Общие стили рамок и теней */
-      --border: rgba(85, 95, 68, 0.15);
-      --shadow: 0 16px 34px rgba(121, 136, 91, 0.06);
+      /* Цвета карточек */
+      --lavender: #F0FDFC; 
+      --blue: #E6F7F7;     
+      --green: #F9FDF2;    
+      --yellow: #FCFEF0;   
+      --pink: #DFF9F6; 
+
+      --border: rgba(15, 185, 177, 0.15);
+      --shadow: 0 16px 34px rgba(15, 185, 177, 0.08);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 18px;
@@ -32,716 +32,206 @@
     }
 
     * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section[id], header[id] {
-      scroll-margin-top: 120px;
-    }
+    html { scroll-behavior: smooth; }
+    section[id], header[id] { scroll-margin-top: 120px; }
 
     body {
       margin: 0;
-      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-      /* Легкий, свежий фон */
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(212, 232, 187, 0.24), transparent 30%),
-        radial-gradient(circle at top right, rgba(212, 232, 248, 0.24), transparent 24%),
-        linear-gradient(180deg, #f4f9ee 0%, #f8fbf4 38%, #fbfdf8 72%, #ffffff 100%);
+        radial-gradient(circle at top left, rgba(15, 185, 177, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(186, 220, 88, 0.15), transparent 24%),
+        linear-gradient(180deg, #f1f9f7 0%, #F4FAF8 38%, #fbfdf8 72%, #ffffff 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 72px 0; }
 
-    .section {
-      padding: 72px 0;
-    }
-
-    /* Плашки заголовков (Eyebrow) - зеленые, чтобы отличаться от карточек */
+    /* БАЛАНСИРОВКА EYEBROW */
     .eyebrow {
       display: inline-block;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #435429;
-      background: #e2f0d1;
-      border: 1px solid #cce0b4;
+      color: #3d4d14;
+      background: var(--accent-happy);
+      border: 1px solid #a8c84a;
       padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     h1, h2, h3, p { margin: 0; }
 
-    h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      color: var(--accent-strong);
-      max-width: 14ch;
+    /* БАЛАНСИРОВКА H1 */
+    h1 { 
+      font-size: clamp(34px, 5.5vw, 56px); 
+      line-height: 1.18; 
+      letter-spacing: -0.02em; 
+      margin-bottom: 24px; 
+      color: var(--accent-strong); 
+      max-width: 14ch; 
     }
 
-    h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-      color: var(--text);
-    }
+    h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 18px; color: var(--text); }
+    h3 { font-size: 20px; line-height: 1.25; margin-bottom: 10px; color: var(--text); }
 
-    h3 {
-      font-size: 20px;
-      line-height: 1.25;
-      margin-bottom: 10px;
-      color: var(--text);
+    /* БАЛАНСИРОВКА LEAD */
+    .lead { 
+      font-size: clamp(19px, 2.2vw, 22px); 
+      color: var(--muted); 
+      max-width: 760px; 
     }
+    .lead + .lead { margin-top: 18px; }
 
-    .lead {
-      font-size: clamp(18px, 2vw, 20px);
-      color: var(--muted);
-      max-width: 760px;
-    }
+    .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(244, 250, 248, 0.9); border-bottom: 1px solid var(--border); }
+    .nav-inner { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; min-height: 76px; flex-wrap: wrap; }
     
-    .lead + .lead {
-      margin-top: 14px;
-    }
+    .brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .brand-name { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; color: var(--accent-strong); line-height: 1.1; }
+    .brand-desc { font-size: 13px; color: var(--muted); font-weight: 500; }
 
-    .hero {
-      padding: 28px 0 60px;
-    }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background-color: var(--accent-strong); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(248, 251, 244, 0.9);
-      border-bottom: 1px solid rgba(121, 136, 91, 0.15);
-    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; padding: 8px 14px; border-radius: 999px; transition: 0.2s ease; font-weight: 500; }
+    .nav-links a.nav-btn { background: var(--accent-strong); color: #ffffff; padding: 10px 20px; margin-left: 8px; font-weight: 600; }
 
-    .nav-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 12px 0;
-      min-height: 76px;
-      flex-wrap: wrap;
-    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; min-height: calc(100vh - 110px); }
 
-    /* Двухстрочный логотип */
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .chips-group { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
+    .chips-group.alt { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(15, 185, 177, 0.1); width: fit-content; }
+    .chip { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: clamp(17px, 2vw, 19px); color: var(--text); }
+    .chip::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-strong); flex-shrink: 0; }
+    .chips-group.alt .chip::before { background: var(--accent-happy); }
 
-    .brand-name {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 19px;
-      color: var(--accent-strong);
-      line-height: 1.1;
-    }
+    .hero-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+    .btn { display: flex; align-items: center; justify-content: center; min-width: 180px; min-height: 52px; padding: 0 24px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: all 0.18s ease; font-size: 15px; text-align: center; }
+    .btn-primary { background: var(--accent-strong); color: #ffffff; box-shadow: 0 8px 20px rgba(15, 185, 177, 0.2); }
+    .btn-secondary { background: #ffffff; color: var(--accent-strong); border: 1.5px solid var(--accent-strong); }
 
-    .brand-desc {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
+    .hero-photo { background: #ffffff; border: 1px solid var(--border); border-radius: 36px; box-shadow: var(--shadow); min-height: 560px; overflow: hidden; display: flex; align-items: stretch; justify-content: center; padding: 24px; }
+    .hero-image { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; background: #ffffff; }
 
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
+    .grid-2 { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: start; }
+    .panel { background: rgba(255,255,255,0.95); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow); }
     
-    .menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background-color: var(--accent-strong);
-      margin: 5px 0;
-      transition: 0.3s;
-      border-radius: 2px;
+    .feature-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .feature-card { 
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%); 
+      border: 1.5px solid #a4deda; 
+      border-radius: 999px; 
+      padding: 12px 24px; 
+      font-weight: 700; 
+      width: fit-content; 
+      min-height: auto; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: 0 4px 12px rgba(15, 185, 177, 0.06); 
+      font-size: 15px; 
     }
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 14px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-      font-weight: 500;
-    }
-
-    .nav-links a.nav-btn {
-      background: var(--accent-strong);
-      color: #ffffff;
-      padding: 10px 20px;
-      margin-left: 8px;
-      font-weight: 600;
-    }
-
-    @media (hover: hover) {
-      .nav-links a:hover:not(.nav-btn) {
-        background: rgba(169, 207, 122, 0.22);
-      }
-      .nav-links a.nav-btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(41, 119, 150, 0.2);
-      }
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
-      align-items: center;
-      min-height: calc(100vh - 110px);
-    }
-
-    .hero-copy {
-      padding: 20px 0;
-    }
-
-    /* === ЖЕСТКАЯ СЕТКА ДЛЯ ПЛАШЕК НА ПЕРВОМ ЭКРАНЕ === */
-    .chips-group {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(130px, 1fr));
-      gap: 12px;
-      margin-top: 26px;
-      max-width: 520px;
-    }
-
-    .chips-group.alt {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(130px, 1fr));
-      margin-top: 12px;
-      max-width: 342px; /* 2 колонки + gap */
-    }
-
-    /* Плашки стали плотнее внутри и имеют четкий контур */
-    .chip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 48px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fdf0f4; /* Плотный пудрово-розовый */
-      border: 1.5px solid #eab8cb; /* Четкий контур */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-      font-weight: 600;
-      font-size: 14.5px;
-      color: #633f4f; /* Темный текст для контраста */
-      text-align: center;
-    }
-
-    .chips-group.alt .chip {
-      background: #eef6fc; /* Плотный голубой */
-      border: 1.5px solid #a8cde5;
-      color: #3b5a70;
-    }
-
-    /* Жесткая сетка для кнопок */
-    .hero-actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(160px, 220px));
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 52px;
-      padding: 0 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      font-size: 15px;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: var(--accent-strong);
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(41, 119, 150, 0.2);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: var(--accent-strong);
-      border: 1.5px solid var(--accent-strong);
-    }
-
-    @media (hover: hover) {
-      .btn:hover { transform: translateY(-2px); }
-      .btn-primary:hover { box-shadow: 0 12px 24px rgba(41, 119, 150, 0.3); }
-      .btn-secondary:hover { background: #f4f9ee; }
-    }
-
-    .hero-photo {
-      background: linear-gradient(180deg, #ffffff 0%, #fcfef9 100%);
-      border: 1px solid var(--border);
-      border-radius: 36px;
-      box-shadow: var(--shadow);
-      min-height: 560px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      min-height: 0;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 24px;
-      display: block;
-      background: #ffffff;
-      flex: 1 1 auto;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .panel {
-      background: rgba(255,255,255,0.95);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-text p + p,
-    .text-block p + p {
-      margin-top: 16px;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .feature-card {
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdf8 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 18px 20px;
-      font-weight: 700;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 14px rgba(121, 136, 91, 0.05);
-    }
-
-    .cards-3,
-    .cards-5,
-    .price-grid,
-    .contacts-grid {
-      display: grid;
-      gap: 18px;
-    }
-
+    .cards-3, .cards-5, .price-grid, .contacts-grid { display: grid; gap: 18px; }
     .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .cards-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .card { background: var(--surface); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow); height: 100%; }
 
-    .card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      height: 100%;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-top: 8px;
-    }
-
-    /* === ВАШИ ОРИГИНАЛЬНЫЕ ЦВЕТА КАРТОЧЕК С АККУРАТНЫМ КОНТУРОМ === */
-    .soft-lavender { background: linear-gradient(180deg, #faf5ff 0%, #eadef5 100%); border: 1px solid #d2bdf2; }
-    .soft-green { background: linear-gradient(180deg, #f6fbef 0%, #e2f2cd 100%); border: 1px solid #c5e0a5; }
-    .soft-blue { background: linear-gradient(180deg, #f5fbff 0%, #dff0fc 100%); border: 1px solid #aecded; }
-    .soft-yellow { background: linear-gradient(180deg, #fffef5 0%, #f9ecc2 100%); border: 1px solid #f3df8e; }
-    .soft-pink { background: linear-gradient(180deg, #fff8fb 0%, #f8e1ea 100%); border: 1px solid #f5cad8; }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 17px;
-      margin-top: 8px;
-    }
-
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .price-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .price-card {
-      text-align: center;
-      padding: 24px 16px;
-    }
-
-    .price-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .price {
-      display: block;
-      font-size: clamp(24px, 2.2vw, 30px);
-      line-height: 1;
-      font-weight: 800;
-      margin-top: 10px;
-      letter-spacing: -0.02em;
-    }
-
-    .price-note {
-      color: var(--muted);
-      font-size: 15px;
-      margin-top: 18px;
-      background: #f4f9ee;
-      border: 1px solid #d4e8bb;
-      padding: 20px;
-      border-radius: var(--radius-md);
-    }
-
-    .certificates-wrap {
-      margin-top: 6px;
-    }
-
-    .certificates-track {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(260px, 1fr));
-      gap: 18px;
-      overflow-x: auto;
-      padding-bottom: 12px;
-      scroll-snap-type: x mandatory;
-    }
-
-    .certificates-track::-webkit-scrollbar,
-    .reviews-track::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .certificates-track::-webkit-scrollbar-thumb,
-    .reviews-track::-webkit-scrollbar-thumb {
-      background: #d2bdf2;
-      border-radius: 999px;
-    }
-
-    .cert-card {
-      scroll-snap-align: start;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .cert-open {
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      cursor: zoom-in;
-      border-radius: 18px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .cert-open:hover {
-      transform: translateY(-2px);
-    }
-
-    .cert-image {
-      width: 100%;
-      height: 240px;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(121, 136, 91, 0.15);
-      padding: 10px;
-      display: block;
-    }
-
-    .cert-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .cert-meta strong { font-size: 16px; }
-    .cert-meta span { color: var(--muted); font-size: 13px; }
-
-    .reviews-shell {
-      position: relative;
-    }
-
-    .reviews-track {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(280px, 1fr));
-      gap: 18px;
-      overflow-x: auto;
-      padding-bottom: 12px;
-      scroll-snap-type: x mandatory;
-    }
-
-    .review-card {
-      scroll-snap-align: start;
-      min-height: 240px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .quote {
-      font-size: 42px;
-      line-height: 1;
-      color: #b18ce7;
-      margin-bottom: 10px;
-      font-family: serif;
-    }
-
-    .review-placeholder {
-      color: var(--muted);
-      font-size: 16px;
-      font-style: italic;
-    }
-
-    .review-author {
-      margin-top: 18px;
-      font-weight: 700;
-    }
-
-    .contacts-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .contact-card h3 { margin-bottom: 8px; }
-    .contact-card a { color: inherit; text-decoration: none; }
-    @media (hover: hover) { .contact-card a:hover { text-decoration: underline; } }
-
-    .contact-value {
-      font-size: 17px;
-      font-weight: 700;
-      word-break: break-word;
-    }
-
-    .cert-modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(31, 33, 40, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-    }
-
-    .cert-modal.is-open { display: flex; }
-
-    .cert-modal-dialog {
-      position: relative;
-      width: min(1100px, 100%);
-      max-height: min(90vh, 1000px);
-      padding: 18px 18px 14px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.98);
-      box-shadow: 0 24px 60px rgba(24, 28, 18, 0.22);
-    }
-
-    .cert-modal-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid #d2bdf2;
-      border-radius: 999px;
-      background: #faf5ff;
-      cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
+    .soft-lavender { background: linear-gradient(180deg, #F0FDFC 0%, #D5F2F0 100%); border: 1.5px solid #9ED4D1; }
+    .soft-blue { background: linear-gradient(180deg, #E6F7F7 0%, #BFE8E8 100%); border: 1.5px solid var(--accent-strong); }
+    .soft-green { background: linear-gradient(180deg, #F9FDF2 0%, #E7F3D4 100%); border: 1.5px solid #C7E09D; }
+    
+    .soft-yellow { 
+      background: linear-gradient(180deg, #FCFEF0 0%, #F1F8D1 100%); 
+      border: 1.5px solid #A8C84A; 
     }
     
-    @media (hover: hover) { .cert-modal-close:hover { background: #d2bdf2; } }
+    .soft-pink { background: linear-gradient(180deg, #F2FFFD 0%, #DFF9F6 100%); border: 1.5px solid #A4DEDA; }
 
-    .cert-modal-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 4px 54px 14px 6px;
+    /* === ОБНОВЛЕННЫЙ БАЛАНС В БЛОКЕ ЦЕН (ОТВЕТ НА ЗАПРОС) === */
+    .pricing-wrap { 
+      display: grid; 
+      grid-template-columns: 1fr 1.3fr; /* Сместили баланс */
+      gap: 40px; 
+      align-items: center; /* Сцентрировали по вертикали */
+      max-width: 1080px;    /* Немного ужали общую ширину для плотности */
+      margin: 0 auto;
     }
-
-    .cert-modal-image-wrap {
-      max-height: calc(90vh - 96px);
-      overflow: auto;
-      border-radius: 18px;
-      background: #fff;
+    
+    .price-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .price-card { text-align: center; padding: 24px 12px; }
+    .price-card h3 { 
+      font-size: 17px; 
+      margin-bottom: 8px; 
+      letter-spacing: -0.01em; 
+      hyphens: none; 
+      word-break: keep-all; 
+      overflow-wrap: normal;
     }
-
-    .cert-modal-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
+    .price { 
+      display: block; 
+      font-size: clamp(20px, 2vw, 28px); 
+      line-height: 1.2; 
+      font-weight: 800; 
+      margin-top: 10px; 
+      color: var(--accent-strong); 
+      white-space: nowrap; 
     }
+    .price-note { color: var(--muted); font-size: 15px; margin-top: 18px; background: #f1f9f7; border: 1px solid #cce0db; padding: 20px; border-radius: var(--radius-md); }
 
-    .footer {
-      padding: 32px 0 40px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      border-top: 1px solid rgba(121, 136, 91, 0.15);
-    }
+    .certificates-track { display: grid; grid-template-columns: repeat(4, minmax(260px, 1fr)); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+    .cert-image { width: 100%; height: 240px; object-fit: contain; border-radius: 16px; background: #fff; border: 1px solid var(--border); padding: 10px; display: block; }
+    .quote { font-size: 42px; line-height: 1; color: var(--accent-strong); margin-bottom: 10px; font-family: serif; }
+    .reviews-track { display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+    .review-card { min-height: 240px; display: flex; flex-direction: column; justify-content: space-between; scroll-snap-align: start; }
 
-    .footer-legal {
-      margin-top: 10px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-legal a { color: var(--accent-strong); text-decoration: underline; }
-
-    .back-to-top {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      width: 50px;
-      height: 50px;
-      border: 1px solid #cce0b4;
-      border-radius: 999px;
-      background: #e2f0d1;
-      color: #435429;
-      font-size: 22px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 10px 24px rgba(121, 136, 91, 0.15);
+    .contacts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .contact-link {
       display: flex;
       align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-      z-index: 999;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
     }
+    .contact-icon { flex-shrink: 0; color: var(--accent-strong); }
+    .contact-value { font-size: 17px; font-weight: 700; word-break: break-word; }
 
-    .back-to-top.is-visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+    .cert-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(30, 39, 46, 0.8); backdrop-filter: blur(6px); z-index: 1000; }
+    .cert-modal.is-open { display: flex; }
+    .cert-modal-dialog { position: relative; width: min(1100px, 100%); max-height: min(90vh, 1000px); padding: 18px; border-radius: 24px; background: rgba(255,255,255,0.98); box-shadow: 0 24px 60px rgba(15, 185, 177, 0.22); }
+    .cert-modal-close { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border: 1px solid var(--accent-strong); border-radius: 999px; background: #f4fbfb; cursor: pointer; font-size: 22px; display: flex; align-items: center; justify-content: center; }
+    .cert-modal-image-wrap { max-height: calc(90vh - 96px); overflow: auto; border-radius: 12px; }
 
-    @media (hover: hover) { .back-to-top:hover { transform: translateY(-2px); } }
+    .footer { padding: 32px 0 40px; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--border); }
+    .back-to-top { position: fixed; right: 24px; bottom: 24px; width: 50px; height: 50px; border: 1px solid #A8C84A; border-radius: 999px; background: var(--accent-happy); color: #3d4d14; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(186, 220, 88, 0.15); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.2s; z-index: 999; }
+    .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    @media (max-width: 1080px) {
-      .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; }
-      .hero-photo { min-height: 460px; }
-      .cards-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 780px) {
-      section[id], header[id] { scroll-margin-top: 80px; }
-      .section { padding: 48px 0; }
-      
-      .menu-toggle { display: block; }
-      .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
-      .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-      
-      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding: 10px 0 20px; }
-      .nav-links.is-open { display: flex; }
-      .nav-links a { padding: 12px 16px; background: rgba(255,255,255,0.9); border: 1px solid var(--border); border-radius: 12px; text-align: center; font-size: 15px; }
-      .nav-links a.nav-btn { margin-left: 0; margin-top: 8px; border: none; }
-
-      /* Адаптация плашек для мобильных */
-      .chips-group, .chips-group.alt {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-      }
-      .chip { width: auto; flex: 1 1 calc(50% - 12px); min-height: 44px; font-size: 13px;}
-      
-      .hero-actions { grid-template-columns: 1fr; }
-      .cards-3, .cards-5, .price-grid, .contacts-grid { grid-template-columns: 1fr; }
-      
-      .hero { padding-top: 16px; }
-      .hero-grid { min-height: auto; }
-      .hero-photo { min-height: 360px; }
-      .panel, .card { padding: 22px; }
-      
-      .certificates-track::-webkit-scrollbar, .reviews-track::-webkit-scrollbar { display: none; }
-      .certificates-track, .reviews-track { grid-template-columns: repeat(4, 86vw); -ms-overflow-style: none; scrollbar-width: none;}
-      
-      .back-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; font-size: 20px; }
+    @media (max-width: 1080px) { .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; } .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 780px) { 
+      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding: 10px 0 20px; } 
+      .nav-links.is-open { display: flex; } 
+      .menu-toggle { display: block; } 
+      .cards-3, .cards-5, .price-grid, .contacts-grid { grid-template-columns: 1fr; } 
+      .certificates-track, .reviews-track { display: flex; overflow-x: auto; scrollbar-width: none; } 
+      .cert-card, .review-card { min-width: 86vw; } 
+      .chips-group { gap: 16px; } .chip { font-size: 15px; } 
+      .price-card h3 { font-size: 18px; } 
+      .feature-list { justify-content: center; }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <div class="brand">
+      <a href="#" class="brand">
         <div class="brand-name">Ирина Шиманская</div>
         <div class="brand-desc">преподаватель английского языка</div>
-      </div>
+      </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
       <div class="nav-links" id="navLinks">
         <a href="#about">Обо мне</a>
@@ -778,9 +268,8 @@
           <a class="btn btn-secondary" href="#pricing">Посмотреть стоимость</a>
         </div>
       </div>
-
       <div class="hero-photo">
-        <img src="profile.png" alt="Ирина Шиманская, преподаватель английского языка" class="hero-image">
+        <img src="profile.png" alt="Ирина Шиманская" class="hero-image">
       </div>
     </div>
   </header>
@@ -792,14 +281,11 @@
           <div class="eyebrow">О преподавателе</div>
           <h2>Опыт, квалификация и собственные материалы</h2>
         </div>
-
         <div class="grid-2">
           <div class="panel about-text soft-green">
-            <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно и с учётом возраста, уровня и целей.</p>
-            <p>У меня лингвистическое образование и международные преподавательские сертификаты. В работе я использую современные материалы и проверенные методики, постоянно развиваюсь профессионально и уделяю большое внимание качеству обучения.</p>
-            <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно, уверенно и без лишнего стресса.</p>
+            <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно.</p>
+            <p>У меня лингвистическое образование и международные преподавательские сертификаты. Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно и без стресса.</p>
           </div>
-
           <div class="feature-list">
             <div class="feature-card">20 лет опыта</div>
             <div class="feature-card">Лингвистическое образование</div>
@@ -808,51 +294,27 @@
           </div>
         </div>
 
-        <div class="certificates-wrap">
-          <div class="section-head" style="margin-top: 28px; margin-bottom: 18px;">
+        <div class="certificates-wrap" style="margin-top: 40px;">
+          <div class="section-head" style="margin-bottom: 24px;">
             <h3 style="margin-bottom: 8px; font-size: 24px;">Сертификаты и дипломы</h3>
-            <p>Нажмите на изображение, чтобы посмотреть сертификат в полном размере прямо на сайте.</p>
+            <p>Нажмите на изображение, чтобы посмотреть сертификат в полном размере.</p>
           </div>
-
           <div class="certificates-track">
             <article class="card cert-card soft-lavender">
-              <button class="cert-open" type="button" data-image="TEFL.PNG" data-title="TEFL / TESOL Certificate">
-                <img src="TEFL.PNG" alt="TEFL Certificate" class="cert-image">
-              </button>
-              <div class="cert-meta">
-                <strong>TEFL / TESOL Certificate</strong>
-                <span>Pearson · Hunter College, City University of New York</span>
-              </div>
+              <button class="cert-open" type="button" data-image="TEFL.PNG" data-title="TEFL / TESOL Certificate"><img src="TEFL.PNG" alt="TEFL" class="cert-image"></button>
+              <div class="cert-meta"><strong>TEFL / TESOL Certificate</strong><span>Pearson · Hunter College, CUNY</span></div>
             </article>
-
             <article class="card cert-card soft-blue">
-              <button class="cert-open" type="button" data-image="tkt1.jpg" data-title="TKT Module 1">
-                <img src="tkt1.jpg" alt="TKT Module 1" class="cert-image">
-              </button>
-              <div class="cert-meta">
-                <strong>TKT Module 1</strong>
-                <span>Cambridge Assessment English</span>
-              </div>
+              <button class="cert-open" type="button" data-image="tkt1.jpg" data-title="TKT Module 1"><img src="tkt1.jpg" alt="TKT 1" class="cert-image"></button>
+              <div class="cert-meta"><strong>TKT Module 1</strong><span>Cambridge English</span></div>
             </article>
-
             <article class="card cert-card soft-green">
-              <button class="cert-open" type="button" data-image="tkt2.PNG" data-title="TKT Module 2">
-                <img src="tkt2.PNG" alt="TKT Module 2" class="cert-image">
-              </button>
-              <div class="cert-meta">
-                <strong>TKT Module 2</strong>
-                <span>Cambridge Assessment English</span>
-              </div>
+              <button class="cert-open" type="button" data-image="tkt2.PNG" data-title="TKT Module 2"><img src="tkt2.PNG" alt="TKT 2" class="cert-image"></button>
+              <div class="cert-meta"><strong>TKT Module 2</strong><span>Cambridge English</span></div>
             </article>
-
             <article class="card cert-card soft-yellow">
-              <button class="cert-open" type="button" data-image="tkt3.PNG" data-title="TKT Module 3">
-                <img src="tkt3.PNG" alt="TKT Module 3" class="cert-image">
-              </button>
-              <div class="cert-meta">
-                <strong>TKT Module 3</strong>
-                <span>Cambridge Assessment English</span>
-              </div>
+              <button class="cert-open" type="button" data-image="tkt3.PNG" data-title="TKT Module 3"><img src="tkt3.PNG" alt="TKT 3" class="cert-image"></button>
+              <div class="cert-meta"><strong>TKT Module 3</strong><span>Cambridge English</span></div>
             </article>
           </div>
         </div>
@@ -865,28 +327,13 @@
           <div class="eyebrow">Чем могу помочь</div>
           <h2>С какими задачами ко мне можно обратиться</h2>
         </div>
-
         <div class="cards-3">
-          <article class="card soft-lavender">
-            <h3>Дошкольники с 5.5 лет</h3>
-            <p>Мягкое знакомство с английским, формирование интереса и позитивного отношения к языку, первые слова, фразы и чтение в доступном по возрасту формате.</p>
-          </article>
-          <article class="card soft-green">
-            <h3>Школьники</h3>
-            <p>Формирование устойчивой базы, развитие языковых навыков, грамматики, словарного запаса, понимания на слух. Помощь в переходе от "не понимаю английский" к уверенности на уроках.</p>
-          </article>
-          <article class="card soft-blue">
-            <h3>Взрослые</h3>
-            <p>Спокойное и последовательное изучение английского с опорой на уровень, цель и комфортный темп обучения.</p>
-          </article>
+          <article class="card soft-lavender"><h3>Дошкольники с 5.5 лет</h3><p>Мягкое знакомство с английским, формирование интереса и позитивного отношения к языку.</p></article>
+          <article class="card soft-green"><h3>Школьники</h3><p>Формирование устойчивой базы, развитие языковых навыков, грамматики и словарного запаса.</p></article>
+          <article class="card soft-blue"><h3>Взрослые</h3><p>Спокойное и последовательное изучение английского с опорой на уровень и цель.</p></article>
         </div>
-
         <div style="height: 18px"></div>
-
-        <article class="card soft-yellow">
-          <h3>Отдельные направления работы</h3>
-          <p>Обучение чтению, развитие разговорных навыков, систематизация знаний и восполнение пробелов, подготовка к детским и подростковым Кембриджским экзаменам.</p>
-        </article>
+        <article class="card soft-yellow"><h3>Отдельные направления работы</h3><p>Обучение чтению, развитие разговорных навыков, систематизация знаний, восполнение пробелов, подготовка к Кембриджским экзаменам.</p></article>
       </div>
     </section>
 
@@ -896,64 +343,26 @@
           <div class="eyebrow">Форматы занятий</div>
           <h2>Можно выбрать подходящий формат обучения</h2>
         </div>
-
         <div class="cards-5">
-          <article class="card soft-green">
-            <h3>В группе</h3>
-            <p>Практика, динамика и обучение в мини-группе.</p>
-          </article>
-          <article class="card soft-blue">
-            <h3>В паре</h3>
-            <p>Занятия вдвоём с поддержкой и взаимодействием.</p>
-          </article>
-          <article class="card soft-lavender">
-            <h3>Индивидуально</h3>
-            <p>Персональный маршрут и темп обучения.</p>
-          </article>
-          <article class="card soft-pink">
-            <h3>В студии</h3>
-            <p>Очный формат в комфортной обстановке.</p>
-          </article>
-          <article class="card soft-yellow">
-            <h3>Онлайн</h3>
-            <p>Современный и удобный формат из любой точки мира.</p>
-          </article>
+          <article class="card soft-green"><h3>В группе</h3><p>Практика в мини-группе.</p></article>
+          <article class="card soft-blue"><h3>В паре</h3><p>Занятия вдвоём.</p></article>
+          <article class="card soft-lavender"><h3>Индивидуально</h3><p>Персональный темп.</p></article>
+          <article class="card soft-pink"><h3>В студии</h3><p>Очный формат.</p></article>
+          <article class="card soft-yellow"><h3>Онлайн</h3><p>Удобно из любой точки.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="reviews">
-      <div class="container reviews-shell">
+      <div class="container">
         <div class="section-head">
           <div class="eyebrow">Отзывы</div>
           <h2>Что говорят ученики и родители</h2>
-          <p>Пока здесь размещены тестовые карточки-заглушки. Позже их можно заменить на реальные отзывы.</p>
         </div>
-
         <div class="reviews-track">
-          <article class="card review-card soft-lavender">
-            <div>
-              <div class="quote">“</div>
-              <div class="review-placeholder">Текст отзыва появится здесь</div>
-            </div>
-            <div class="review-author">Мама ученика, 8 лет</div>
-          </article>
-
-          <article class="card review-card soft-green">
-            <div>
-              <div class="quote">“</div>
-              <div class="review-placeholder">Текст отзыва появится здесь</div>
-            </div>
-            <div class="review-author">Ученица, 13 лет</div>
-          </article>
-
-          <article class="card review-card soft-blue">
-            <div>
-              <div class="quote">“</div>
-              <div class="review-placeholder">Текст отзыва появится здесь</div>
-            </div>
-            <div class="review-author">Взрослая ученица</div>
-          </article>
+          <article class="card review-card soft-lavender"><div><div class="quote">“</div><div class="review-placeholder">Текст отзыва появится здесь</div></div><div class="review-author">Мама ученика, 8 лет</div></article>
+          <article class="card review-card soft-green"><div><div class="quote">“</div><div class="review-placeholder">Текст отзыва появится здесь</div></div><div class="review-author">Ученица, 13 лет</div></article>
+          <article class="card review-card soft-blue"><div><div class="quote">“</div><div class="review-placeholder">Текст отзыва появится здесь</div></div><div class="review-author">Взрослая ученица</div></article>
         </div>
       </div>
     </section>
@@ -963,33 +372,20 @@
         <div>
           <div class="section-head">
             <div class="eyebrow">Стоимость занятий</div>
-            <h2>Понятные условия и прозрачная стоимость</h2>
-            <p>Оптимальный формат можно подобрать под возраст, задачу и комфортный темп обучения.</p>
+            <h2>Понятные условия</h2>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacts">Записаться</a>
-            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Ознакомиться с договором</a>
+            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank">Договор</a>
           </div>
         </div>
-
         <div>
           <div class="price-grid">
-            <article class="card price-card soft-green">
-              <h3>В группе</h3>
-              <span class="price">от 900 ₽</span>
-            </article>
-            <article class="card price-card soft-blue">
-              <h3>В паре</h3>
-              <span class="price">от 1300 ₽</span>
-            </article>
-            <article class="card price-card soft-lavender">
-              <h3>Индивидуально</h3>
-              <span class="price">от 2400 ₽</span>
-            </article>
+            <article class="card price-card soft-green"><h3>В группе</h3><span class="price">от 900&nbsp;₽</span></article>
+            <article class="card price-card soft-blue"><h3>В паре</h3><span class="price">от 1300&nbsp;₽</span></article>
+            <article class="card price-card soft-lavender"><h3>Индивидуально</h3><span class="price">от 2400&nbsp;₽</span></article>
           </div>
-          <div class="panel price-note">
-            Продолжительность занятия — 60 минут. Занятия оплачиваются по абонементу.
-          </div>
+          <div class="panel price-note">Продолжительность занятия — 60 минут. Оплата по абонементу.</div>
         </div>
       </div>
     </section>
@@ -999,49 +395,63 @@
         <div class="section-head">
           <div class="eyebrow">Запись и контакты</div>
           <h2>Свяжитесь со мной удобным способом</h2>
-          <p>Если вы хотите записаться на занятия или задать вопрос, выберите удобный способ связи.</p>
         </div>
-
         <div class="contacts-grid">
           <article class="card contact-card soft-lavender">
             <h3>Телефон</h3>
-            <div class="contact-value"><a href="tel:+79854673627">+7 985 467-36-27</a></div>
+            <div class="contact-value">
+              <a href="tel:+79854673627" class="contact-link">
+                <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +7 985 467-36-27
+              </a>
+            </div>
           </article>
           <article class="card contact-card soft-blue">
             <h3>Telegram</h3>
-            <div class="contact-value"><a href="https://t.me/Eirinia2024" target="_blank" rel="noopener noreferrer">@Eirinia2024</a></div>
+            <div class="contact-value">
+              <a href="https://t.me/Eirinia2024" target="_blank" class="contact-link">
+                <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                @Eirinia2024
+              </a>
+            </div>
           </article>
           <article class="card contact-card soft-green">
             <h3>Мах</h3>
-            <div class="contact-value"><a href="tel:+79637898391">+7 963 789-83-91</a></div>
+            <div class="contact-value">
+              <a href="https://t.me/Eirinia2024" class="contact-link">
+                <svg class="contact-icon" width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M50 15C30.67 15 15 30.67 15 50C15 57.34 17.27 64.15 21.14 69.75L15 85L30.25 78.86C35.85 82.73 42.66 85 50 85C69.33 85 85 69.33 85 50C85 30.67 69.33 15 50 15ZM50 73C37.3 73 27 62.7 27 50C27 37.3 37.3 27 50 27C62.7 27 73 37.3 73 50C73 62.7 62.7 73 50 73Z" fill="currentColor"/>
+                </svg>
+                +7 963 789-83-91
+              </a>
+            </div>
           </article>
           <article class="card contact-card soft-pink">
             <h3>Студия</h3>
-            <div class="contact-value">г. Москва. Ул. Кусковская 20А каб. В702А</div>
+            <div class="contact-value" style="display:flex; align-items:start; gap:10px;">
+              <svg class="contact-icon" style="margin-top:4px" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Москва, ул. Кусковская 20А
+            </div>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="cert-modal" id="certModal" aria-hidden="true">
-    <div class="cert-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
-      <button class="cert-modal-close" type="button" id="certModalClose" aria-label="Закрыть">×</button>
-      <div class="cert-modal-title" id="certModalTitle">Сертификат</div>
+  <div class="cert-modal" id="certModal">
+    <div class="cert-modal-dialog">
+      <button class="cert-modal-close" id="certModalClose">×</button>
+      <div style="font-weight:700; margin-bottom:15px;" id="certModalTitle">Сертификат</div>
       <div class="cert-modal-image-wrap">
-        <img src="" alt="" class="cert-modal-image" id="certModalImage">
+        <img src="" alt="" id="certModalImage" style="width:100%; border-radius:12px;">
       </div>
     </div>
   </div>
 
   <footer class="footer">
     <div class="container">
-      <div>Сайт-визитка преподавателя английского языка</div>
-      <div class="footer-legal">
-        <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна</div>
-        <div>ИНН: 772773326600 | ОГРНИП: 318774600260427</div>
-        <div style="margin-top: 8px;"><a href="dogovor.pdf" target="_blank" rel="noopener noreferrer">Договор</a></div>
-      </div>
+      <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна</div>
+      <div style="margin-top: 8px;">ИНН: 772773326600 | <a href="dogovor.pdf" target="_blank">Договор</a></div>
     </div>
   </footer>
   
@@ -1056,54 +466,32 @@
 
     function openCertModal(src, title) {
       certModalImage.src = src;
-      certModalImage.alt = title;
       certModalTitle.textContent = title;
       certModal.classList.add('is-open');
-      certModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
     function closeCertModal() {
       certModal.classList.remove('is-open');
-      certModal.setAttribute('aria-hidden', 'true');
-      certModalImage.src = '';
-      certModalImage.alt = '';
       document.body.style.overflow = '';
     }
 
-    certButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        openCertModal(button.dataset.image, button.dataset.title || 'Сертификат');
-      });
-    });
-
+    certButtons.forEach(btn => btn.addEventListener('click', () => openCertModal(btn.dataset.image, btn.dataset.title)));
     certModalClose.addEventListener('click', closeCertModal);
-    certModal.addEventListener('click', (event) => { if (event.target === certModal) closeCertModal(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && certModal.classList.contains('is-open')) closeCertModal(); });
+    certModal.addEventListener('click', (e) => { if(e.target === certModal) closeCertModal(); });
 
     const backToTop = document.getElementById('backToTop');
-    function toggleBackToTop() {
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 500) backToTop.classList.add('is-visible');
       else backToTop.classList.remove('is-visible');
-    }
-    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    window.addEventListener('scroll', toggleBackToTop);
-    toggleBackToTop();
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-    const navItems = navLinks.querySelectorAll('a');
-
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('is-active');
       navLinks.classList.toggle('is-open');
-    });
-
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        menuToggle.classList.remove('is-active');
-        navLinks.classList.remove('is-open');
-      });
     });
   </script>
 </body>
