@@ -45,6 +45,7 @@
         linear-gradient(180deg, #f1f9f7 0%, #F4FAF8 38%, #fbfdf8 72%, #ffffff 100%);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
@@ -87,6 +88,7 @@
     }
     .lead + .lead { margin-top: 18px; }
 
+    /* НАВИГАЦИЯ */
     .nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); background: rgba(244, 250, 248, 0.9); border-bottom: 1px solid var(--border); }
     .nav-inner { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; min-height: 76px; position: relative; }
     
@@ -94,13 +96,14 @@
     .brand-name { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; color: var(--accent-strong); line-height: 1.1; }
     .brand-desc { font-size: 13px; color: var(--muted); font-weight: 500; }
 
-    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 110; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 110; border-radius: 8px; }
     .menu-toggle span { display: block; width: 24px; height: 2px; background-color: var(--accent-strong); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
-
+    
     .nav-links { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; padding: 8px 14px; border-radius: 999px; transition: 0.2s ease; font-weight: 500; }
     .nav-links a.nav-btn { background: var(--accent-strong); color: #ffffff; padding: 10px 20px; margin-left: 8px; font-weight: 600; }
 
+    /* HERO */
     .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; }
 
     .chips-group { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
@@ -110,13 +113,14 @@
     .chips-group.alt .chip::before { background: var(--accent-happy); }
 
     .hero-actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
-    .btn { display: flex; align-items: center; justify-content: center; min-width: 180px; min-height: 52px; padding: 0 24px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: all 0.18s ease; font-size: 15px; text-align: center; }
+    .btn { display: flex; align-items: center; justify-content: center; min-width: 180px; min-height: 52px; padding: 0 24px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: all 0.18s ease; font-size: 15px; text-align: center; cursor: pointer; border: none; }
     .btn-primary { background: var(--accent-strong); color: #ffffff; box-shadow: 0 8px 20px rgba(15, 185, 177, 0.2); }
     .btn-secondary { background: #ffffff; color: var(--accent-strong); border: 1.5px solid var(--accent-strong); }
 
     .hero-photo { background: #ffffff; border: 1px solid var(--border); border-radius: 36px; box-shadow: var(--shadow); min-height: 520px; overflow: hidden; display: flex; align-items: stretch; justify-content: center; padding: 20px; }
     .hero-image { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; background: #ffffff; }
 
+    /* О ПРЕПОДАВАТЕЛЕ */
     .grid-2 { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: start; }
     .panel { background: rgba(255,255,255,0.95); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow); }
     
@@ -135,22 +139,34 @@
       font-size: 15px; 
     }
 
+    /* КАРТОЧКИ */
     .cards-3, .cards-5, .price-grid, .contacts-grid { display: grid; gap: 18px; }
     .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .cards-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .card { background: var(--surface); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow); height: 100%; }
 
+    /* ЦВЕТА КАРТОЧЕК */
     .soft-lavender { background: linear-gradient(180deg, #F0FDFC 0%, #D5F2F0 100%); border: 1.5px solid #9ED4D1; }
     .soft-blue { background: linear-gradient(180deg, #E6F7F7 0%, #BFE8E8 100%); border: 1.5px solid var(--accent-strong); }
     .soft-green { background: linear-gradient(180deg, #F9FDF2 0%, #E7F3D4 100%); border: 1.5px solid #C7E09D; }
-    
-    .soft-yellow { 
-      background: linear-gradient(180deg, #FCFEF0 0%, #F1F8D1 100%); 
-      border: 1.5px solid #A8C84A; 
-    }
-    
+    .soft-yellow { background: linear-gradient(180deg, #FCFEF0 0%, #F1F8D1 100%); border: 1.5px solid #A8C84A; }
     .soft-pink { background: linear-gradient(180deg, #F2FFFD 0%, #DFF9F6 100%); border: 1.5px solid #A4DEDA; }
 
+    /* ССЫЛКА НА ПОСОБИЕ */
+    .inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-strong);
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 12px;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .inline-link:hover { border-bottom-color: var(--accent-strong); gap: 10px; }
+
+    /* БЛОК ЦЕН */
     .pricing-wrap { 
       display: grid; 
       grid-template-columns: 1fr 1.3fr; 
@@ -175,43 +191,47 @@
     .pricing-wrap .price-grid { 
       grid-template-columns: repeat(3, minmax(0, 1fr)); 
       gap: 14px;
-      margin-top: 0; 
+      margin-top: 54px; 
     }
 
     .pricing-wrap .hero-actions { margin-top: 24px; }
-    
     .price-card { text-align: center; padding: 20px 10px; } 
     .price-card h3 { font-size: 16px; margin-bottom: 6px; }
-    
     .price { display: block; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.2; font-weight: 800; margin-top: 6px; color: var(--accent-strong); white-space: nowrap; }
 
+    /* СЕРТИФИКАТЫ */
     .certificates-track { display: grid; grid-template-columns: repeat(4, minmax(260px, 1fr)); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+    .cert-open { background: none; border: none; padding: 0; cursor: pointer; width: 100%; display: flex; justify-content: center; margin-bottom: 16px; }
     .cert-image { width: 100%; height: 240px; object-fit: contain; border-radius: 16px; background: #fff; border: 1px solid var(--border); padding: 10px; display: block; }
+    .cert-meta strong { display: block; margin-bottom: 4px; font-size: 16px; color: var(--text); }
+    .cert-meta span { display: block; font-size: 13px; color: var(--muted); line-height: 1.3; }
+
+    /* ОТЗЫВЫ */
     .quote { font-size: 42px; line-height: 1; color: var(--accent-strong); margin-bottom: 10px; font-family: serif; }
     .reviews-track { display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
     .review-card { min-height: 240px; display: flex; flex-direction: column; justify-content: space-between; scroll-snap-align: start; }
 
+    /* КОНТАКТЫ */
     .contacts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: inherit;
-    }
+    .contact-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
     .contact-icon { flex-shrink: 0; color: var(--accent-strong); }
     .contact-value { font-size: 17px; font-weight: 700; word-break: break-word; }
 
+    /* МОДАЛЬНОЕ ОКНО */
     .cert-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(30, 39, 46, 0.8); backdrop-filter: blur(6px); z-index: 1000; }
     .cert-modal.is-open { display: flex; }
     .cert-modal-dialog { position: relative; width: min(1100px, 100%); max-height: min(90vh, 1000px); padding: 18px; border-radius: 24px; background: rgba(255,255,255,0.98); box-shadow: 0 24px 60px rgba(15, 185, 177, 0.22); }
     .cert-modal-close { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border: 1px solid var(--accent-strong); border-radius: 999px; background: #f4fbfb; cursor: pointer; font-size: 22px; display: flex; align-items: center; justify-content: center; }
+    .cert-modal-image-wrap { max-height: calc(90vh - 96px); overflow: auto; border-radius: 12px; }
 
+    /* ПОДВАЛ */
     .footer { padding: 32px 0; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--border); }
-    .back-to-top { position: fixed; right: 24px; bottom: 24px; width: 50px; height: 50px; border: 1px solid #A8C84A; border-radius: 999px; background: var(--accent-happy); color: #3d4d14; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(186, 220, 88, 0.15); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.2s; z-index: 999; }
+    
+    /* НАВЕРХ */
+    .back-to-top { position: fixed; right: 24px; bottom: 24px; width: 50px; height: 50px; border: 1px solid #A8C84A; border-radius: 999px; background: var(--accent-happy); color: #3d4d14; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(186, 220, 88, 0.15); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.2s; z-index: 99; }
     .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* === МОБИЛЬНЫЕ ТВИКИ ДЛЯ ИДЕАЛЬНОГО ОТОБРАЖЕНИЯ === */
+    /* === МОБИЛЬНАЯ АДАПТАЦИЯ (ФИКСЫ) === */
     @media (max-width: 1080px) { 
       .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; } 
       .pricing-wrap .price-grid { margin-top: 0; } 
@@ -242,10 +262,11 @@
 
       .cards-3, .cards-5, .price-grid, .contacts-grid { grid-template-columns: 1fr; } 
       .certificates-track, .reviews-track { display: flex; overflow-x: auto; scrollbar-width: none; } 
-      .cert-card, .review-card { min-width: 86vw; } 
+      .cert-card, .review-card { min-width: 86vw; scroll-snap-align: center; } 
       .hero-photo { min-height: 380px; }
       .feature-list { justify-content: center; }
       .nav-links a.nav-btn { margin-left: 0; margin-top: 10px; text-align: center; }
+      .price-note { max-width: 100%; }
     }
   </style>
 </head>
@@ -309,8 +330,11 @@
         </div>
         <div class="grid-2">
           <div class="panel about-text soft-green">
-            <p>Меня зовут Ирина. Я преподаватель английского языка с опыт работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно.</p>
-            <p>У меня лингвистическое образование и международные преподавательские сертификаты. Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно и без стресса.</p>
+            <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно.</p>
+            <p>У меня лингвистическое образование и международные преподавательские сертификаты.</p>
+            <p>Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно и без стресса. 
+               <br><a href="https://readwithowly.ru/" target="_blank" class="inline-link">Подробнее о пособии «Read with Owly» →</a>
+            </p>
           </div>
           <div class="feature-list">
             <div class="feature-card">20 лет опыта</div>
@@ -327,20 +351,40 @@
           </div>
           <div class="certificates-track">
             <article class="card cert-card soft-lavender">
-              <button class="cert-open" type="button" data-image="TEFL.PNG" data-title="TEFL / TESOL Certificate"><img src="TEFL.PNG" alt="TEFL" class="cert-image"></button>
-              <div class="cert-meta"><strong>TEFL / TESOL Certificate</strong><span>Pearson · Hunter College, CUNY</span></div>
+              <button class="cert-open" type="button" data-image="TEFL.PNG" data-title="TEFL / TESOL Certificate">
+                <img src="TEFL.PNG" alt="TEFL" class="cert-image">
+              </button>
+              <div class="cert-meta">
+                <strong>TEFL / TESOL Certificate</strong>
+                <span>Pearson · Hunter College, CUNY</span>
+              </div>
             </article>
             <article class="card cert-card soft-blue">
-              <button class="cert-open" type="button" data-image="tkt1.jpg" data-title="TKT Module 1"><img src="tkt1.jpg" alt="TKT 1" class="cert-image"></button>
-              <div class="cert-meta"><strong>TKT Module 1</strong><span>Cambridge English</span></div>
+              <button class="cert-open" type="button" data-image="tkt1.jpg" data-title="TKT Module 1">
+                <img src="tkt1.jpg" alt="TKT 1" class="cert-image">
+              </button>
+              <div class="cert-meta">
+                <strong>TKT Module 1</strong>
+                <span>Cambridge English</span>
+              </div>
             </article>
             <article class="card cert-card soft-green">
-              <button class="cert-open" type="button" data-image="tkt2.PNG" data-title="TKT Module 2"><img src="tkt2.PNG" alt="TKT 2" class="cert-image"></button>
-              <div class="cert-meta"><strong>TKT Module 2</strong><span>Cambridge English</span></div>
+              <button class="cert-open" type="button" data-image="tkt2.PNG" data-title="TKT Module 2">
+                <img src="tkt2.PNG" alt="TKT 2" class="cert-image">
+              </button>
+              <div class="cert-meta">
+                <strong>TKT Module 2</strong>
+                <span>Cambridge English</span>
+              </div>
             </article>
             <article class="card cert-card soft-yellow">
-              <button class="cert-open" type="button" data-image="tkt3.PNG" data-title="TKT Module 3"><img src="tkt3.PNG" alt="TKT 3" class="cert-image"></button>
-              <div class="cert-meta"><strong>TKT Module 3</strong><span>Cambridge English</span></div>
+              <button class="cert-open" type="button" data-image="tkt3.PNG" data-title="TKT Module 3">
+                <img src="tkt3.PNG" alt="TKT 3" class="cert-image">
+              </button>
+              <div class="cert-meta">
+                <strong>TKT Module 3</strong>
+                <span>Cambridge English</span>
+              </div>
             </article>
           </div>
         </div>
@@ -359,7 +403,10 @@
           <article class="card soft-blue"><h3>Взрослые</h3><p>Спокойное и последовательное изучение английского с опорой на уровень и цель.</p></article>
         </div>
         <div style="height: 18px"></div>
-        <article class="card soft-yellow"><h3>Отдельные направления работы</h3><p>Обучение чтению, развитие разговорных навыков, систематизация знаний, восполнение пробелов, подготовка к Кембриджским экзаменам.</p></article>
+        <article class="card soft-yellow">
+          <h3>Отдельные направления работы</h3>
+          <p>Обучение чтению (с использованием авторского пособия), развитие разговорных навыков, систематизация знаний, восполнение пробелов, подготовка к Кембриджским экзаменам.</p>
+        </article>
       </div>
     </section>
 
@@ -522,6 +569,15 @@
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('is-active');
       navLinks.classList.toggle('is-open');
+    });
+
+    // Закрытие меню при клике на ссылку (для мобильных)
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('is-active');
+        navLinks.classList.remove('is-open');
+      });
     });
   </script>
 </body>
