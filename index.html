@@ -23,6 +23,7 @@
       --yellow: #FCFEF0;   
       --pink: #DFF9F6; 
 
+      /* Стили рамок и теней */
       --border: rgba(15, 185, 177, 0.15);
       --shadow: 0 16px 34px rgba(15, 185, 177, 0.08);
       --radius-xl: 28px;
@@ -33,7 +34,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    section[id], header[id] { scroll-margin-top: 120px; }
+    section[id], header[id] { scroll-margin-top: 100px; }
 
     body {
       margin: 0;
@@ -47,9 +48,10 @@
     }
 
     .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    .section { padding: 72px 0; }
+    
+    .section, .hero { padding: 40px 0; } 
+    .section-head { margin-bottom: 28px; }
 
-    /* БАЛАНСИРОВКА EYEBROW */
     .eyebrow {
       display: inline-block;
       font-size: 15px;
@@ -61,12 +63,11 @@
       border: 1px solid #a8c84a;
       padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     h1, h2, h3, p { margin: 0; }
 
-    /* БАЛАНСИРОВКА H1 */
     h1 { 
       font-size: clamp(34px, 5.5vw, 56px); 
       line-height: 1.18; 
@@ -76,10 +77,9 @@
       max-width: 14ch; 
     }
 
-    h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 18px; color: var(--text); }
+    h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--text); }
     h3 { font-size: 20px; line-height: 1.25; margin-bottom: 10px; color: var(--text); }
 
-    /* БАЛАНСИРОВКА LEAD */
     .lead { 
       font-size: clamp(19px, 2.2vw, 22px); 
       color: var(--muted); 
@@ -87,34 +87,34 @@
     }
     .lead + .lead { margin-top: 18px; }
 
-    .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(244, 250, 248, 0.9); border-bottom: 1px solid var(--border); }
-    .nav-inner { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; min-height: 76px; flex-wrap: wrap; }
+    .nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); background: rgba(244, 250, 248, 0.9); border-bottom: 1px solid var(--border); }
+    .nav-inner { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; min-height: 76px; position: relative; }
     
     .brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
     .brand-name { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; color: var(--accent-strong); line-height: 1.1; }
     .brand-desc { font-size: 13px; color: var(--muted); font-weight: 500; }
 
-    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 110; }
     .menu-toggle span { display: block; width: 24px; height: 2px; background-color: var(--accent-strong); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
 
     .nav-links { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; padding: 8px 14px; border-radius: 999px; transition: 0.2s ease; font-weight: 500; }
     .nav-links a.nav-btn { background: var(--accent-strong); color: #ffffff; padding: 10px 20px; margin-left: 8px; font-weight: 600; }
 
-    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; min-height: calc(100vh - 110px); }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; }
 
-    .chips-group { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
+    .chips-group { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
     .chips-group.alt { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(15, 185, 177, 0.1); width: fit-content; }
     .chip { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: clamp(17px, 2vw, 19px); color: var(--text); }
     .chip::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-strong); flex-shrink: 0; }
     .chips-group.alt .chip::before { background: var(--accent-happy); }
 
-    .hero-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
     .btn { display: flex; align-items: center; justify-content: center; min-width: 180px; min-height: 52px; padding: 0 24px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: all 0.18s ease; font-size: 15px; text-align: center; }
     .btn-primary { background: var(--accent-strong); color: #ffffff; box-shadow: 0 8px 20px rgba(15, 185, 177, 0.2); }
     .btn-secondary { background: #ffffff; color: var(--accent-strong); border: 1.5px solid var(--accent-strong); }
 
-    .hero-photo { background: #ffffff; border: 1px solid var(--border); border-radius: 36px; box-shadow: var(--shadow); min-height: 560px; overflow: hidden; display: flex; align-items: stretch; justify-content: center; padding: 24px; }
+    .hero-photo { background: #ffffff; border: 1px solid var(--border); border-radius: 36px; box-shadow: var(--shadow); min-height: 520px; overflow: hidden; display: flex; align-items: stretch; justify-content: center; padding: 20px; }
     .hero-image { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; background: #ffffff; }
 
     .grid-2 { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: start; }
@@ -151,36 +151,39 @@
     
     .soft-pink { background: linear-gradient(180deg, #F2FFFD 0%, #DFF9F6 100%); border: 1.5px solid #A4DEDA; }
 
-    /* === ОБНОВЛЕННЫЙ БАЛАНС В БЛОКЕ ЦЕН (ОТВЕТ НА ЗАПРОС) === */
     .pricing-wrap { 
       display: grid; 
-      grid-template-columns: 1fr 1.3fr; /* Сместили баланс */
+      grid-template-columns: 1fr 1.3fr; 
       gap: 40px; 
-      align-items: center; /* Сцентрировали по вертикали */
-      max-width: 1080px;    /* Немного ужали общую ширину для плотности */
+      align-items: start;
+      max-width: 1080px;    
       margin: 0 auto;
     }
     
-    .price-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .price-card { text-align: center; padding: 24px 12px; }
-    .price-card h3 { 
-      font-size: 17px; 
-      margin-bottom: 8px; 
-      letter-spacing: -0.01em; 
-      hyphens: none; 
-      word-break: keep-all; 
-      overflow-wrap: normal;
+    .price-note { 
+      color: var(--text); 
+      font-size: 16px; 
+      font-weight: 600; 
+      line-height: 1.4;
+      background: #f1f9f7; 
+      border: 1.5px solid #cce0db; 
+      padding: 20px; 
+      border-radius: var(--radius-md);
+      max-width: 440px;
     }
-    .price { 
-      display: block; 
-      font-size: clamp(20px, 2vw, 28px); 
-      line-height: 1.2; 
-      font-weight: 800; 
-      margin-top: 10px; 
-      color: var(--accent-strong); 
-      white-space: nowrap; 
+
+    .pricing-wrap .price-grid { 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      gap: 14px;
+      margin-top: 0; 
     }
-    .price-note { color: var(--muted); font-size: 15px; margin-top: 18px; background: #f1f9f7; border: 1px solid #cce0db; padding: 20px; border-radius: var(--radius-md); }
+
+    .pricing-wrap .hero-actions { margin-top: 24px; }
+    
+    .price-card { text-align: center; padding: 20px 10px; } 
+    .price-card h3 { font-size: 16px; margin-bottom: 6px; }
+    
+    .price { display: block; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.2; font-weight: 800; margin-top: 6px; color: var(--accent-strong); white-space: nowrap; }
 
     .certificates-track { display: grid; grid-template-columns: repeat(4, minmax(260px, 1fr)); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
     .cert-image { width: 100%; height: 240px; object-fit: contain; border-radius: 16px; background: #fff; border: 1px solid var(--border); padding: 10px; display: block; }
@@ -203,23 +206,46 @@
     .cert-modal.is-open { display: flex; }
     .cert-modal-dialog { position: relative; width: min(1100px, 100%); max-height: min(90vh, 1000px); padding: 18px; border-radius: 24px; background: rgba(255,255,255,0.98); box-shadow: 0 24px 60px rgba(15, 185, 177, 0.22); }
     .cert-modal-close { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; border: 1px solid var(--accent-strong); border-radius: 999px; background: #f4fbfb; cursor: pointer; font-size: 22px; display: flex; align-items: center; justify-content: center; }
-    .cert-modal-image-wrap { max-height: calc(90vh - 96px); overflow: auto; border-radius: 12px; }
 
-    .footer { padding: 32px 0 40px; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--border); }
+    .footer { padding: 32px 0; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--border); }
     .back-to-top { position: fixed; right: 24px; bottom: 24px; width: 50px; height: 50px; border: 1px solid #A8C84A; border-radius: 999px; background: var(--accent-happy); color: #3d4d14; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(186, 220, 88, 0.15); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.2s; z-index: 999; }
     .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    @media (max-width: 1080px) { .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; } .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    /* === МОБИЛЬНЫЕ ТВИКИ ДЛЯ ИДЕАЛЬНОГО ОТОБРАЖЕНИЯ === */
+    @media (max-width: 1080px) { 
+      .hero-grid, .grid-2, .pricing-wrap { grid-template-columns: 1fr; } 
+      .pricing-wrap .price-grid { margin-top: 0; } 
+      .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+    }
+
     @media (max-width: 780px) { 
-      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; padding: 10px 0 20px; } 
+      .nav-links { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        right: 0; 
+        background: white; 
+        flex-direction: column; 
+        align-items: stretch; 
+        padding: 20px; 
+        border-bottom: 1px solid var(--border); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+      } 
       .nav-links.is-open { display: flex; } 
       .menu-toggle { display: block; } 
+      
+      /* АНИМАЦИЯ ГАМБУРГЕРА */
+      .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+      .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
       .cards-3, .cards-5, .price-grid, .contacts-grid { grid-template-columns: 1fr; } 
       .certificates-track, .reviews-track { display: flex; overflow-x: auto; scrollbar-width: none; } 
       .cert-card, .review-card { min-width: 86vw; } 
-      .chips-group { gap: 16px; } .chip { font-size: 15px; } 
-      .price-card h3 { font-size: 18px; } 
+      .hero-photo { min-height: 380px; }
       .feature-list { justify-content: center; }
+      .nav-links a.nav-btn { margin-left: 0; margin-top: 10px; text-align: center; }
     }
   </style>
 </head>
@@ -283,7 +309,7 @@
         </div>
         <div class="grid-2">
           <div class="panel about-text soft-green">
-            <p>Меня зовут Ирина. Я преподаватель английского языка с опытом работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно.</p>
+            <p>Меня зовут Ирина. Я преподаватель английского языка с опыт работы более 20 лет. На занятиях для меня важно, чтобы ученику было спокойно, понятно и интересно, а обучение строилось последовательно.</p>
             <p>У меня лингвистическое образование и международные преподавательские сертификаты. Я также являюсь автором пособия по обучению чтению на английском языке, которое помогает детям осваивать чтение постепенно и без стресса.</p>
           </div>
           <div class="feature-list">
@@ -295,9 +321,9 @@
         </div>
 
         <div class="certificates-wrap" style="margin-top: 40px;">
-          <div class="section-head" style="margin-bottom: 24px;">
+          <div class="section-head" style="margin-top: 28px; margin-bottom: 18px;">
             <h3 style="margin-bottom: 8px; font-size: 24px;">Сертификаты и дипломы</h3>
-            <p>Нажмите на изображение, чтобы посмотреть сертификат в полном размере.</p>
+            <p>Нажмите на изображение, чтобы посмотреть сертификат.</p>
           </div>
           <div class="certificates-track">
             <article class="card cert-card soft-lavender">
@@ -368,24 +394,28 @@
     </section>
 
     <section class="section" id="pricing">
-      <div class="container pricing-wrap">
-        <div>
-          <div class="section-head">
-            <div class="eyebrow">Стоимость занятий</div>
-            <h2>Понятные условия</h2>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacts">Записаться</a>
-            <a class="btn btn-secondary" href="dogovor.pdf" target="_blank">Договор</a>
-          </div>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Стоимость занятий</div>
+          <h2>Понятные условия</h2>
         </div>
-        <div>
-          <div class="price-grid">
-            <article class="card price-card soft-green"><h3>В группе</h3><span class="price">от 900&nbsp;₽</span></article>
-            <article class="card price-card soft-blue"><h3>В паре</h3><span class="price">от 1300&nbsp;₽</span></article>
-            <article class="card price-card soft-lavender"><h3>Индивидуально</h3><span class="price">от 2400&nbsp;₽</span></article>
+        
+        <div class="pricing-wrap">
+          <div>
+            <div class="panel price-note">Продолжительность занятия — 60 минут. Оплата по абонементу.</div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contacts">Записаться</a>
+              <a class="btn btn-secondary" href="dogovor.pdf" target="_blank">Договор</a>
+            </div>
           </div>
-          <div class="panel price-note">Продолжительность занятия — 60 минут. Оплата по абонементу.</div>
+          
+          <div>
+            <div class="price-grid">
+              <article class="card price-card soft-green"><h3>В группе</h3><span class="price">от 900&nbsp;₽</span></article>
+              <article class="card price-card soft-blue"><h3>В паре</h3><span class="price">от 1300&nbsp;₽</span></article>
+              <article class="card price-card soft-lavender"><h3>Индивидуально</h3><span class="price">от 2400&nbsp;₽</span></article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -450,8 +480,8 @@
 
   <footer class="footer">
     <div class="container">
-      <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна</div>
-      <div style="margin-top: 8px;">ИНН: 772773326600 | <a href="dogovor.pdf" target="_blank">Договор</a></div>
+      <div>Исполнитель услуг: ИП Шиманская Ирина Викторовна | ИНН: 772773326600</div>
+      <div style="margin-top: 8px;">© 2024 Ирина Шиманская. <a href="dogovor.pdf" target="_blank">Договор</a></div>
     </div>
   </footer>
   
