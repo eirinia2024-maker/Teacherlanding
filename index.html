@@ -267,6 +267,34 @@
       .feature-list { justify-content: center; }
       .nav-links a.nav-btn { margin-left: 0; margin-top: 10px; text-align: center; }
       .price-note { max-width: 100%; }
+
+      /* Цены на мобильной версии: две карточки сверху, индивидуальное занятие — широкой плашкой ниже */
+      .pricing-wrap .price-grid {
+        grid-template-columns: repeat(2, minmax(0, 145px));
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .pricing-wrap .price-card {
+        padding: 20px 10px;
+      }
+
+      .pricing-wrap .price-card:nth-child(3) {
+        grid-column: 1 / -1;
+        width: min(100%, 304px);
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 16px 18px;
+        text-align: left;
+      }
+
+      .pricing-wrap .price-card:nth-child(3) h3,
+      .pricing-wrap .price-card:nth-child(3) .price {
+        margin: 0;
+      }
     }
   </style>
 </head>
